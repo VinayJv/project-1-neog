@@ -1,20 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Halant:wght@400;600&family=Nunito+Sans:wght@400;600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 :root {
   --color-60: #ffffff;
   --color-30: #F79A1F;
   --color-10: #EB4F47;
-  --color-transparent: rgba(255,255,255,10%);
+  --color-transparent: rgba(255,255,255,20%);
+}
+
+h2{
+  margin-bottom: 1.5rem;
+  font-family: 'Halant', serif;
+  padding-left: 1%;
+  color: var(--color-10);
 }
 
 ul {
   display: flex;
   list-style: none;
   gap: 1.5rem;
+}
+
+input[type=radio] {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 .nav-bar {
@@ -25,14 +40,15 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
   background-color: white;
   box-shadow: 1px 1px 5px black;
+  z-index: 999;
 }
 
 
 .logo-container {
   width: fit-content;
+  cursor: pointer;
 }
 
 .nav-item-container {
@@ -43,33 +59,54 @@ ul {
   display: none;
 }
 .main-page{
-  z-index: -1;
+  z-index: 1;
 }
 .hero-container{
   display: flex;
-  margin: 0 auto;
-  width: 80%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .hero-image{
-  position: relative;
-  width: 92%;
+  width: 100%;
+  object-fit: contain;
+}
+.radio-btn{
+  margin:0.5rem;
+  display: flex;
+  gap:0.5rem;
+}
+.home{
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+.category-container{
+  display: flex;
+  width: 100%;
+  height: fit-content;
+}
+.category-card{
+  display: flex;
+  flex-direction: column;
+  width: 33.33%;
+  height: 30vh;
+}
+.card-images{
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
-.prev-img-btn{
+.card-description{
+  position: relative;
+  top:-50%;
   flex-grow: 1;
+  padding: 0.5rem;
+  text-align: center;
   background-color: var(--color-transparent);
-  border: none;
-  font-size: 1.2rem;
-  font-weight: bolder;
+  cursor: pointer;
 }
-.next-img-btn{
-  flex-grow: 1;
-  background-color: var(--color-transparent);
-  border: none;
-  font-size: 1.2rem;
-  font-weight: bolder;
-}
-
 
 @media only screen and (max-width: 768px) {
   .nav-item-container{

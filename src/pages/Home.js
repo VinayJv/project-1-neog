@@ -2,45 +2,59 @@ import { useDataContext } from "../context/dataContext";
 import { useState } from "react";
 
 export function Home() {
-  const { heroImage } = useDataContext();
+  const { heroImage, state } = useDataContext();
   const [heroImageId, setHeroImageId] = useState(0);
-
   return (
     <div className="home">
       <div className="hero-container">
-        <button
-          className="prev-img-btn"
-          onClick={() =>
-            setHeroImageId(() => {
-              if (heroImageId <= 0) {
-                return heroImage.length-1;
-              } else {
-                return heroImageId - 1;
-              }
-            })
-          }
-        >
-          {"<"}
-        </button>
         <img
           src={heroImage[heroImageId].image}
           alt=""
           className="hero-image"
         ></img>
-        <button
-          className="next-img-btn"
-          onClick={() =>
-            setHeroImageId(() => {
-              if (heroImageId >= heroImage.length-1) {
-                return 0;
-              } else {
-                return heroImageId + 1;
-              }
-            })
-          }
-        >
-          {">"}
-        </button>
+        <div className="radio-btn">
+          {heroImage.map(({ id, image }, index) => {
+            if (index === 0) {
+              return (
+                <input
+                  type="radio"
+                  className="radio-input"
+                  key={index}
+                  name="radio"
+                  defaultChecked
+                  onChange={(event) => {
+                    if (event.target.checked === true) {
+                      setHeroImageId(index);
+                    }
+                  }}
+                ></input>
+              );
+            } else {
+              return (
+                <input
+                  type="radio"
+                  className="radio-input"
+                  key={index}
+                  name="radio"
+                  onChange={(event) => {
+                    if (event.target.checked === true) {
+                      setHeroImageId(index);
+                    }
+                  }}
+                ></input>
+              );
+            }
+          })}
+        </div>
+      </div>
+      <h2>CATEGORIES</h2>
+      <div className="category-container"> 
+      {state.categoryData.map(({ id, categoryName,image }) => (
+          <div className="category-card" key={id}>
+            <img src={image} alt="" className="card-images"></img>
+            <p className="card-description">{categoryName}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
