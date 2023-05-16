@@ -2,14 +2,68 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import Mockman from "mockman-js";
+import { NavLink } from "react-router-dom";
+import { BiSearchAlt } from "react-icons/bi";
+import { AiOutlineShopping } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHeart } from "react-icons/ai";
+import { BsPerson } from "react-icons/bs";
+import { FaPhoenixSquadron } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useDataContext } from "./context/dataContext";
 
 function App() {
+  const {menuToggle,setMenuToggle} = useDataContext();
+  
+  const showMenu = () => {
+    setMenuToggle(!menuToggle);
+  };
+
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/mock-api" element={<Mockman />}></Route>
-      </Routes>
+      <div className="nav-bar" id="nav-bar">
+        <div className="logo-container">
+          <FaPhoenixSquadron size={50} style={{ color: "#EB4F47" }} />
+        </div>
+        <header>
+          <ul className={menuToggle ? "nav-item-container-active" : "nav-item-container"}>
+            <li>
+              <NavLink to="/">
+                <BiSearchAlt size={30} style={{ color: "#EB4F47" }} />
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/">
+                <AiOutlineShopping size={30} style={{ color: "#EB4F47" }} />
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/">
+                <AiOutlineShoppingCart size={30} style={{ color: "#EB4F47" }} />
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/">
+                <AiOutlineHeart size={30} style={{ color: "#EB4F47" }} />
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/">
+                <BsPerson size={30} style={{ color: "#EB4F47" }} />
+              </NavLink>
+            </li>
+          </ul>
+          <div className="hamburger" onClick={showMenu}>
+          <GiHamburgerMenu size={30} style={{ color: "#EB4F47" }} />
+          </div>
+        </header>
+      </div>
+      <div className="main-page">
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/mock-api" element={<Mockman />}></Route>
+        </Routes>
+      </div>
     </div>
   );
 }

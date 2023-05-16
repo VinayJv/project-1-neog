@@ -1,51 +1,93 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --color-60: #ffffff;
+  --color-30: #F79A1F;
+  --color-10: #EB4F47;
+  --color-transparent: rgba(255,255,255,10%);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
+ul {
   display: flex;
-  flex-direction: column;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-bar {
+  position: sticky;
+  top:0;
+  width: 100%;
+  padding: 0.5rem 10% 0.5rem 10%;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  color: white;
+  z-index: 999;
+  background-color: white;
+  box-shadow: 1px 1px 5px black;
 }
 
-.App-link {
-  color: #61dafb;
+
+.logo-container {
+  width: fit-content;
 }
 
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
+.nav-item-container {
+  height: fit-content;
+  width: fit-content;
 }
-
-.brand-title span {
-  color: #ffde59;
+.hamburger{
+  display: none;
 }
-
-.brand-description {
-  font-size: 1.4rem;
+.main-page{
+  z-index: -1;
 }
-
-.links {
+.hero-container{
   display: flex;
+  margin: 0 auto;
+  width: 80%;
+}
+.hero-image{
+  position: relative;
+  width: 92%;
+  object-fit: cover;
+}
+.prev-img-btn{
+  flex-grow: 1;
+  background-color: var(--color-transparent);
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+.next-img-btn{
+  flex-grow: 1;
+  background-color: var(--color-transparent);
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bolder;
 }
 
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+
+@media only screen and (max-width: 768px) {
+  .nav-item-container{
+    display: none;
+  }
+  .nav-item-container-active{
+    display: block;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top:110%;
+    right: 8%;
+    padding: 0.5rem;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 5px black;
+  }
+  .hamburger {
+    cursor: pointer;
+    display: block;
+  }
 }
