@@ -24,7 +24,7 @@ export const categories = [
   },
   {
     id: uuid(),
-    categoryName: "Storage",
+    categoryName: "Storage ",
     description:
       "Computer data storage is a technology consisting of computer components and recording media that are used to retain digital data.",
     image:

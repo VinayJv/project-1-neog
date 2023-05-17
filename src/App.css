@@ -12,6 +12,7 @@
   --color-30: #F79A1F;
   --color-10: #EB4F47;
   --color-transparent: rgba(255,255,255,20%);
+  --color-transparent-70: rgba(255,255,255,70%);
 }
 
 h2{
@@ -19,6 +20,10 @@ h2{
   font-family: 'Halant', serif;
   padding-left: 1%;
   color: var(--color-10);
+}
+h4{
+  text-decoration: underline;
+  font-size: 1.2rem;
 }
 
 ul {
@@ -30,6 +35,13 @@ ul {
 input[type=radio] {
   cursor: pointer;
   transform: scale(1.2);
+}
+footer{
+  width: 80%;
+  margin: 0 auto;
+  height: 40vh;
+  border: 1px solid black;
+
 }
 
 .nav-bar {
@@ -80,7 +92,6 @@ input[type=radio] {
 .home{
   width: 80%;
   margin: 0 auto;
-  border: 1px solid black;
 }
 .category-container{
   display: flex;
@@ -104,11 +115,92 @@ input[type=radio] {
   flex-grow: 1;
   padding: 0.5rem;
   text-align: center;
-  background-color: var(--color-transparent);
+  background-color: var(--color-transparent-70);
+  cursor: pointer;
+  font-size: 1rem;
+}
+.promotion-img-container{
+  width: 100%;
+  height: 40vh;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.promotion-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.promotion-description-container{
+  position: relative;
+  top: -60%;
+  left: 5%;
+  width: 80%;
+  padding: 0 1% 1% 1%;
+  background: linear-gradient(90deg,var(--color-transparent) 30%, rgba(0,0,0,0%) 70%);
+}
+.promotion-text{
+  font-family: 'Halant', sans-serif;
+  font-size: 3rem;
+  color: var(--color-60);
+}
+.letter-highlight{
+  font-size: 4rem;
+  font-weight: bolder;
+  font-family: 'Halant', sans-serif;
+  color: var(--color-10);
+}
+.btn-basic{
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-10);
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: var(--color-10);
   cursor: pointer;
 }
+.btn-basic:active{
+  scale: 0.8;
+  transition: scale 200ms;
+}
+.footer-image-container{
+  height: 40vh;
+}
+.footer-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 -10rem;
+}
+.footer-brand{
+  position: relative;
+  top: -80%;
+  left: 10%;
+  width: 20%;
+  height: 50%;
+  padding: 1rem;
+  color: white;
+  background: linear-gradient(90deg,var(--color-transparent) 30%, rgba(0,0,0,0%) 70%);
+}
+.footer-connect{
+  position: relative;
+  bottom: 130%;
+  left: 80%;
+  width: 20%;
+  height: 50%;
+  padding: 1rem;
+  line-height: 2rem;
+  color: white;
+  background: linear-gradient(90deg,var(--color-transparent) 30%, rgba(0,0,0,0%) 70%);
+}
+
+
+
+
+
 
 @media only screen and (max-width: 768px) {
+  *{
+    font-size: 14px;
+  }
   .nav-item-container{
     display: none;
   }
@@ -126,5 +218,76 @@ input[type=radio] {
   .hamburger {
     cursor: pointer;
     display: block;
+  }
+  .category-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .category-card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20vh;
+  }
+  .card-images{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card-description{
+    position: relative;
+    top:-24.5%;
+    padding: 1rem;
+    text-align: center;
+    background-color: var(--color-transparent-70);
+  }
+  .promotion-description-container{
+    position: relative;
+    top: -95%;
+    left: 5%;
+    width: 80%;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--color-transparent);
+    background: linear-gradient(90deg,var(--color-transparent) 30%, rgba(0,0,0,0%) 70%);
+  }
+  .promotion-img-container{
+    width: 100%;
+    height: 25vh;
+  }
+  footer{
+    height: 50vh;
+  }
+  .footer-image-container{
+    width: 100%;
+    height: 100%;
+  }
+  .footer-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 0;
+  }
+  .footer-brand{
+    position: relative;
+    top: -90%;
+    width: 45%;
+    height: fit-content;
+    padding: 0.5rem;
+    line-height: 2rem;
+    color: white;
+    background: linear-gradient(90deg,var(--color-transparent) 30%, rgba(0,0,0,0%) 70%);
+  }
+  .footer-connect{
+    position: relative;
+    top: -80%;
+    left: 10%;
+    width: 45%;
+    height: fit-content;
+    padding: 1rem;
+    line-height: 2rem;
+    color: white;
+    background: linear-gradient(90deg,var(--color-transparent) 30%, rgba(0,0,0,0%) 70%);
   }
 }
