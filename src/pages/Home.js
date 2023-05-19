@@ -1,9 +1,11 @@
 import { useDataContext } from "../context/dataContext";
 import { useState } from "react";
+import { Navigate, useNavigate } from "react-router";
 
 export function Home() {
   const { heroImage, state } = useDataContext();
   const [heroImageId, setHeroImageId] = useState(0);
+  const navigate = useNavigate();
   return (
     <div className="home">
       <div className="hero-container">
@@ -66,7 +68,7 @@ export function Home() {
           <p className="promotion-text">
             <span className="letter-highlight">F</span>or All Your Gaming Needs.
           </p>
-          <button className="btn-basic">Explore</button>
+          <button className="btn-basic" onClick={()=>navigate("/store")}>Explore</button>
         </div>
       </div>
     </div>

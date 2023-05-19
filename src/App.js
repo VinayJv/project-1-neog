@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
+import { Store } from "./pages/Store";
 import Mockman from "mockman-js";
 import { NavLink } from "react-router-dom";
 import { BiSearchAlt } from "react-icons/bi";
@@ -61,6 +62,7 @@ function App() {
       <div className="main-page">
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/store" element={<Store />}></Route>
           <Route path="/mock-api" element={<Mockman />}></Route>
         </Routes>
       </div>
