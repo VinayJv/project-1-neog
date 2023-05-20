@@ -28,6 +28,15 @@ export function DataWrapper({ children }) {
         return { ...state, categoryData: payload };
       case "updateData":
         return { ...state, productData: payload };
+      case "SortData":
+        if (payload === "LowToHigh") {
+          return { ...state, sortBy: payload }
+        }
+        else {
+          return { ...state, sortBy: payload }
+        }
+      case "resetFilters":
+        return { ...state, sortBy: "none" };
       default:
         break;
     }
@@ -39,7 +48,7 @@ export function DataWrapper({ children }) {
   const [menuToggle, setMenuToggle] = useState(false);
   const [state, dispatch] = useReducer(reducerFunction, { categoryData: [], productData: [], sortBy: "none" });
   return (
-    <DataContext.Provider value={{ menuToggle, setMenuToggle, heroImage, state }}>
+    <DataContext.Provider value={{ menuToggle, setMenuToggle, heroImage, state, dispatch }}>
       {children}
     </DataContext.Provider>
   );

@@ -8,7 +8,7 @@ export function ProductCard({data}){
             <p style={{color:"green"}}>20% discount on all products</p>
             <div className="card-btn-container">
                 <button className="btn-basic">Add To Cart</button>
-                <button className="btn-basic card-btn">Add To Wishlist</button>
+                <button className="btn-basic">Add To Wishlist</button>
             </div>
         </div>
     </div>)

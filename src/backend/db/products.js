@@ -12,7 +12,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://www.theitdepot.com/images/proimages/33605-Asus-500.jpg",
-    price: "25,080",
+    price: 25080,
     categoryName: "Graphic Cards",
   },
   {
@@ -21,7 +21,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://cdn.mdcomputers.in/image/cachewebp/catalog/graphics%20card/asrock/90-ga2rzz-00ianf/90-ga2rzz-00ianf-image_main-600x600.webp",
-    price: "23,000",
+    price: 23000,
     categoryName: "Graphic Cards",
   },
   {
@@ -30,7 +30,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://cdn.mdcomputers.in/image/cachewebp/catalog/graphics%20card/asus/dual-rtx4070-12g/dual-rtx4070-12g-image-main-600x600.webp",
-    price: "61,499",
+    price: 61499,
     categoryName: "Graphic Cards",
   },
   {
@@ -39,7 +39,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://www.pcshop.in/wp-content/uploads/2020/02/ANT-ESPORTS-ICE-C612.jpg",
-    price: "1,225",
+    price: 1225,
     categoryName: "CPU Coolers",
   },
   {
@@ -48,7 +48,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://m.media-amazon.com/images/I/615JOJVB6XL._SY450_.jpg",
-    price: "2,14,000",
+    price: 214000,
     categoryName: "Graphic Cards",
   },
   {
@@ -57,7 +57,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://www.theitdepot.com/images/proimages/39678_500_1.jpg",
-    price: "15,495",
+    price: 15495,
     categoryName: "Storage",
   },
   {
@@ -66,7 +66,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://www.pcshop.in/wp-content/uploads/2021/04/NOCTUA-NH-D15-CHROMAX-BLACK-1.png",
-    price: "9,100",
+    price: 9100,
     categoryName: "CPU Coolers",
   },
   {
@@ -75,7 +75,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://www.pcshop.in/wp-content/uploads/2019/04/SAMSUNG-970-EVO-PLUS-NVMe-250GB.jpg",
-    price: "5,500",
+    price: 5500,
     categoryName: "Storage",
   },
   {
@@ -84,7 +84,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://www.pcshop.in/wp-content/uploads/2020/01/PNY-480GB-CS900-INTERNAL-SSD.png",
-    price: "4,250",
+    price: 4250,
     categoryName: "Storage",
   },
   {
@@ -93,7 +93,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://www.theitdepot.com/images/proimages/39597_500_1.jpg",
-    price: "28,360",
+    price: 28360,
     categoryName: "CPU Coolers",
   },
   {
@@ -102,7 +102,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://www.pcshop.in/wp-content/uploads/2020/01/PNY-250GB-CS3030-M.2-NVMe-INTERNAL-SSD.jpg",
-    price: "4,180",
+    price: 4180,
     categoryName: "Storage",
   },
   {
@@ -111,7 +111,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://www.pcshop.in/wp-content/uploads/2021/08/CORSAIR-H55-RGB.png",
-    price: "5,800",
+    price: 5800,
     categoryName: "CPU Coolers",
   },
   {
@@ -120,7 +120,7 @@ export const products = [
     inWhishlist: false,
     inCart: false,
     image:"https://cdn.mdcomputers.in/image/cachewebp/catalog/graphics%20card/asus_new/dual-rtx3050-o8g/asus-dual-rtx3050-o8g-image-main-600x600.webp",
-    price: "27,599",
+    price: 27599,
     categoryName: "Graphic Cards",
   },
 ];
