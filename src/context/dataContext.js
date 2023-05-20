@@ -15,6 +15,9 @@ export function DataWrapper({ children }) {
       const response = await fetch("/api/categories");
       let data = await response.json();
       dispatch({ type: "dataInitialization", payload: data.categories });
+      const products = await fetch("/api/products");
+      let productsData = await products.json();
+      dispatch({ type: "updateData", payload: productsData.products });
     } catch (err) {
       console.log(err);
     }
@@ -23,6 +26,8 @@ export function DataWrapper({ children }) {
     switch (type) {
       case "dataInitialization":
         return { ...state, categoryData: payload };
+      case "updateData":
+        return { ...state, productData: payload };
       default:
         break;
     }
@@ -32,7 +37,7 @@ export function DataWrapper({ children }) {
   }, []);
 
   const [menuToggle, setMenuToggle] = useState(false);
-  const [state, dispatch] = useReducer(reducerFunction, { categoryData: [] });
+  const [state, dispatch] = useReducer(reducerFunction, { categoryData: [], productData: [], sortBy: "none" });
   return (
     <DataContext.Provider value={{ menuToggle, setMenuToggle, heroImage, state }}>
       {children}
