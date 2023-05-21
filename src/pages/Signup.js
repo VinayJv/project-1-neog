@@ -6,6 +6,10 @@ export function Signup() {
             <div className="login-card">
                 <h4 style={{marginBottom:"1rem",color:"#EB4F47"}}>Sign Up</h4>
                 <div style={{marginBottom:"1rem",color:"#EB4F47"}}>
+                    <label>Name</label><br />
+                    <input type="input" placeholder="John Doe" className="loginInput"></input>
+                </div>
+                <div style={{marginBottom:"1rem",color:"#EB4F47"}}>
                     <label>Email Address</label><br />
                     <input type="input" placeholder="test@gmail.com" className="loginInput"></input>
                 </div>
