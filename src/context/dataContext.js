@@ -5,11 +5,13 @@ import {
   useReducer,
   useEffect,
 } from "react";
+import { useNavigate } from "react-router";
 import { heroImage } from "../constants/heroImage";
 
 const DataContext = createContext(null);
 
 export function DataWrapper({ children }) {
+  const navigate = useNavigate();
   const getData = async () => {
     try {
       const response = await fetch("/api/categories");
@@ -27,7 +29,10 @@ export function DataWrapper({ children }) {
       case "dataInitialization":
         return { ...state, categoryData: payload };
       case "updateData":
-        return { ...state, productData: payload };
+        return { ...state, productData: payload};
+        case "search":
+          navigate("/store");
+          return { ...state, searchFilter: payload }
       case "SortData":
         if (payload === "LowToHigh") {
           return { ...state, sortBy: payload }
@@ -36,7 +41,7 @@ export function DataWrapper({ children }) {
           return { ...state, sortBy: payload }
         }
       case "resetFilters":
-        return { ...state, sortBy: "none" };
+        return { ...state, sortBy: payload, searchFilter: payload };
       default:
         break;
     }
@@ -46,7 +51,7 @@ export function DataWrapper({ children }) {
   }, []);
 
   const [menuToggle, setMenuToggle] = useState(false);
-  const [state, dispatch] = useReducer(reducerFunction, { categoryData: [], productData: [], sortBy: "none" });
+  const [state, dispatch] = useReducer(reducerFunction, { isLoggedIn:false, categoryData: [], productData: [], searchFilter: "", sortBy: "" });
   return (
     <DataContext.Provider value={{ menuToggle, setMenuToggle, heroImage, state, dispatch }}>
       {children}

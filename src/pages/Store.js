@@ -8,18 +8,18 @@ export function Store() {
 
     const filteredData = () => {
         let temp = [];
+        const sortData = (sortBy) => {
+            if (sortBy === "LowToHigh") {
+                return temp.slice().sort((a, b) => a.price - b.price)
+            }
+            else if(sortBy ==="HighToLow"){
+                return temp.slice().sort((a, b) => b.price - a.price)
+            }
+        };
 
-        // const sortData = (sortBy) => {
-        //     if (sortBy === "LowToHigh") {
-        //         return state.productData.sort((a, b) => a.price - b.price)
-        //     }
-        //     else {
-        //         return state.productData.sort((a, b) => b.price - a.price)
-        //     }
-        // };
+        temp = state.searchFilter === "" ? state.productData : state.productData.filter((product)=>product.title.toUpperCase().includes(state.searchFilter.toUpperCase()));
+        temp = state.sortBy === "" ? temp : sortData(state.sortBy);
 
-        // temp = state.sortBy === "none" ? state.productData : sortData(state.sortBy);
-        // console.log(temp);
         return temp;
     }
 

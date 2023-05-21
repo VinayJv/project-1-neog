@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
+  text-decoration: none;
 }
 
 :root {
@@ -65,6 +66,12 @@ footer{
 .logo-container {
   width: fit-content;
   cursor: pointer;
+}
+.search-input{
+  width: 50%;
+  padding: 0.5rem 1%;
+  border: 2px solid var(--color-10);
+  border-radius: 5px;
 }
 
 .nav-item-container {
@@ -267,6 +274,43 @@ footer{
   display: none;
 }
 
+/* Individual Product Page Style */
+.individual-product-page{
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Login Page */
+.login-page-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 80%;
+  margin: 0 auto;
+}
+.login-card{
+  border:2px solid var(--color-10);
+  box-shadow: 2px 3px 2px black;
+  border-radius: 5px;
+  padding: 2rem;
+  width: 30%;
+}
+.loginInput{
+  padding: 0.5rem;
+  border: 2px solid var(--color-10);
+  border-radius: 5px;
+  width: 100%;
+}
+.login-btn{
+  padding: 0.5rem 1rem;
+  color: var(--color-10);
+  background-color: var(--color-60);
+  border: 2px solid var(--color-10);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 
 
 
@@ -427,6 +471,13 @@ footer{
   }
   .btn-hide{
     display: block;
+  }
+  /* Login Reponsive style */
+  .login-page-container{
+    height: 60vh;
+  }
+  .login-card{
+    width: 80%;
   }
 }
 @media only screen and (max-width: 375px){

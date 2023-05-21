@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Store } from "./pages/Store";
 import Mockman from "mockman-js";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { BiSearchAlt } from "react-icons/bi";
 import { AiOutlineShopping } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
@@ -12,10 +12,17 @@ import { BsPerson } from "react-icons/bs";
 import { FaPhoenixSquadron } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useDataContext } from "./context/dataContext";
+import { IndividualProduct } from "./pages/IndividualProduct";
+import { Cart } from "./pages/Cart";
+import { Wishlist } from "./pages/Wishlist";
+import { Login } from "./pages/Login";
+import { Auth } from "./components/Auth";
+import { Signup } from "./pages/Signup";
 
 function App() {
-  const {menuToggle,setMenuToggle} = useDataContext();
-  
+  const { menuToggle, setMenuToggle, dispatch } = useDataContext();
+  const navigate = useNavigate();
+
   const showMenu = () => {
     setMenuToggle(!menuToggle);
   };
@@ -24,38 +31,34 @@ function App() {
     <div className="App">
       <div className="nav-bar" id="nav-bar">
         <div className="logo-container">
-          <FaPhoenixSquadron size={50} style={{ color: "#EB4F47" }} />
+          <FaPhoenixSquadron size={50} style={{ color: "#EB4F47" }} onClick={() => navigate("/")} />
         </div>
+        <input type="search" className="search-input" placeholder="Search for an item" onChange={(event) => dispatch({ type: "search", payload: event.target.value })}></input>
         <header>
           <ul className={menuToggle ? "nav-item-container-active" : "nav-item-container"}>
             <li>
-              <NavLink to="/">
-                <BiSearchAlt size={30} style={{ color: "#EB4F47" }} />
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/">
+              <NavLink to="/store">
                 <AiOutlineShopping size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/">
+              <NavLink to="/cart">
                 <AiOutlineShoppingCart size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/">
+              <NavLink to="/wishlist">
                 <AiOutlineHeart size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/">
+              <NavLink to="/login">
                 <BsPerson size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
           </ul>
           <div className="hamburger" onClick={showMenu}>
-          <GiHamburgerMenu size={30} style={{ color: "#EB4F47" }} />
+            <GiHamburgerMenu size={30} style={{ color: "#EB4F47" }} />
           </div>
         </header>
       </div>
@@ -63,6 +66,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/store" element={<Store />}></Route>
+          <Route path="/store/:productId" element={<IndividualProduct />}></Route>
+          <Route path="/cart" element={<Auth><Cart /></Auth>}></Route>
+          <Route path="/wishlist" element={<Auth><Wishlist /></Auth>}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
           <Route path="/mock-api" element={<Mockman />}></Route>
         </Routes>
       </div>
@@ -80,7 +88,7 @@ function App() {
           </p>
         </div>
         <div className="footer-connect">
-        <h4>Help & Support</h4>
+          <h4>Help & Support</h4>
           <p>
             Contact Us <br></br>
             About Us <br></br>
