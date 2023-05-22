@@ -4,7 +4,6 @@ import { Home } from "./pages/Home";
 import { Store } from "./pages/Store";
 import Mockman from "mockman-js";
 import { NavLink, useNavigate } from "react-router-dom";
-import { BiSearchAlt } from "react-icons/bi";
 import { AiOutlineShopping } from "react-icons/ai";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -18,6 +17,7 @@ import { Wishlist } from "./pages/Wishlist";
 import { Login } from "./pages/Login";
 import { Auth } from "./components/Auth";
 import { Signup } from "./pages/Signup";
+import { Profile } from "./pages/Profile";
 
 function App() {
   const { menuToggle, setMenuToggle, dispatch } = useDataContext();
@@ -37,22 +37,22 @@ function App() {
         <header>
           <ul className={menuToggle ? "nav-item-container-active" : "nav-item-container"}>
             <li>
-              <NavLink to="/store">
+              <NavLink to="/store" onClick={()=>setMenuToggle(!menuToggle)}>
                 <AiOutlineShopping size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/cart">
+              <NavLink to="/cart" onClick={()=>setMenuToggle(!menuToggle)}>
                 <AiOutlineShoppingCart size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/wishlist">
+              <NavLink to="/wishlist" onClick={()=>setMenuToggle(!menuToggle)}>
                 <AiOutlineHeart size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/login">
+              <NavLink to="/profile" onClick={()=>setMenuToggle(!menuToggle)}>
                 <BsPerson size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
@@ -69,6 +69,7 @@ function App() {
           <Route path="/store/:productId" element={<IndividualProduct />}></Route>
           <Route path="/cart" element={<Auth><Cart /></Auth>}></Route>
           <Route path="/wishlist" element={<Auth><Wishlist /></Auth>}></Route>
+          <Route path="/profile" element={<Auth><Profile /></Auth>}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/mock-api" element={<Mockman />}></Route>

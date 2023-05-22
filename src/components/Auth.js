@@ -1,8 +1,10 @@
 import { useDataContext } from "../context/dataContext";
 import { Navigate } from "react-router";
+import { useLocation } from "react-router";
 
 export function Auth({children}){
-    const { isLoggedIn } = useDataContext();
+    const location = useLocation();
+    const { state } = useDataContext();
 
-    return isLoggedIn ? children : <Navigate to="/login" />;
+    return state.isLoggedIn ? children : <Navigate to="/login" state={{from:location}}/>;
 }

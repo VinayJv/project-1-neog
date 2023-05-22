@@ -29,10 +29,15 @@ export function DataWrapper({ children }) {
       case "dataInitialization":
         return { ...state, categoryData: payload };
       case "updateData":
-        return { ...state, productData: payload};
-        case "search":
+        return { ...state, productData: payload };
+      case "Login":
+        return { ...state, isLoggedIn: !state.isLoggedIn };
+        case "Logout":
           navigate("/store");
-          return { ...state, searchFilter: payload }
+          return {...state, isLoggedIn: !state.isLoggedIn };
+      case "search":
+        navigate("/store");
+        return { ...state, searchFilter: payload }
       case "SortData":
         if (payload === "LowToHigh") {
           return { ...state, sortBy: payload }
@@ -41,7 +46,7 @@ export function DataWrapper({ children }) {
           return { ...state, sortBy: payload }
         }
       case "resetFilters":
-        return { ...state, sortBy: payload, searchFilter: payload };
+        return { ...state, sortBy: payload };
       default:
         break;
     }
@@ -51,9 +56,9 @@ export function DataWrapper({ children }) {
   }, []);
 
   const [menuToggle, setMenuToggle] = useState(false);
-  const [state, dispatch] = useReducer(reducerFunction, { isLoggedIn:false, categoryData: [], productData: [], searchFilter: "", sortBy: "" });
+  const [state, dispatch] = useReducer(reducerFunction, { isLoggedIn: false,categoryData: [], productData: [], searchFilter: "", sortBy: "" });
   return (
-    <DataContext.Provider value={{ menuToggle, setMenuToggle, heroImage, state, dispatch }}>
+    <DataContext.Provider value={{ menuToggle, setMenuToggle, heroImage, state, dispatch}}>
       {children}
     </DataContext.Provider>
   );
