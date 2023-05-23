@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import { useDataContext } from "../context/dataContext";
 
 export function ProductCard({data},changeLayout){
-    const { state,cartData,setCartData } = useDataContext();
+    const { state } = useDataContext();
     const navigate = useNavigate();
 
     const addToCart = async(event) => {
@@ -15,12 +15,8 @@ export function ProductCard({data},changeLayout){
                     headers: {
                         authorization: encodedToken,
                     },
-                    body: {
-                        "product": JSON.stringify(clickedItem)
-                    }   
+                    body: JSON.stringify({product: clickedItem}),   
                 });
-                const data = await response.json();
-                setCartData(data);
             }
             catch(err){
                 console.log(err);

@@ -1,5 +1,10 @@
 export function CartCard({data}){
-    return(<div>
-        <p>This is single product</p>
+    console.log(data);
+    return(
+    <div className="cart-card">
+        <img className="products-image" alt={data.title} src={data.image}></img>
+        <div className="cart-description">
+            <p>{data.title}</p>
+        </div>
     </div>)
 }

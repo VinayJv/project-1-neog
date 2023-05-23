@@ -348,12 +348,28 @@ footer{
   background-color: rgba(0,0,0,0%);
 }
 
+/* Cart Card Styling*/
+.cart-card{
+  display: flex;
+  width: 100%;
+  border: 2px solid var(--color-10);
+  border-radius: 5px;
+}
+
 /* Cart Styling */
-.cart-container{
+.cart-parent{
+  display: flex;
   width: 80%;
   margin: 0 auto;
+}
+.cart-container{
+  width: 60%;
   border: 1px solid blue;
   padding: 1rem;
+}
+.cart-details-checkout-container{
+  width: 40%;
+  border: 1px solid green;
 }
 
 
