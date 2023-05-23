@@ -18,9 +18,11 @@ import { Login } from "./pages/Login";
 import { Auth } from "./components/Auth";
 import { Signup } from "./pages/Signup";
 import { Profile } from "./pages/Profile";
+import { useState } from "react";
 
 function App() {
-  const { menuToggle, setMenuToggle, dispatch } = useDataContext();
+  const { dispatch } = useDataContext();
+  const [menuToggle, setMenuToggle] = useState(false);
   const navigate = useNavigate();
 
   const showMenu = () => {

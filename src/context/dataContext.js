@@ -6,59 +6,87 @@ import {
   useEffect,
 } from "react";
 import { useNavigate } from "react-router";
-import { heroImage } from "../constants/heroImage";
 
 const DataContext = createContext(null);
 
-export function DataWrapper({ children }) {
+export function ContextWrapper({ children }) {
   const navigate = useNavigate();
-  const getData = async () => {
-    try {
-      const response = await fetch("/api/categories");
-      let data = await response.json();
-      dispatch({ type: "dataInitialization", payload: data.categories });
-      const products = await fetch("/api/products");
-      let productsData = await products.json();
-      dispatch({ type: "updateData", payload: productsData.products });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+
   const reducerFunction = (state, { type, payload }) => {
     switch (type) {
       case "dataInitialization":
         return { ...state, categoryData: payload };
+
       case "updateData":
         return { ...state, productData: payload };
+
       case "Login":
         return { ...state, isLoggedIn: !state.isLoggedIn };
-        case "Logout":
-          navigate("/store");
-          return {...state, isLoggedIn: !state.isLoggedIn };
+
+      case "Logout":
+        return { ...state, isLoggedIn: !state.isLoggedIn };
+
+      case "foundUser":
+        return { ...state, foundUser: payload };
+
       case "search":
         navigate("/store");
-        return { ...state, searchFilter: payload }
+        return { ...state, searchFilter: payload };
+
       case "SortData":
         if (payload === "LowToHigh") {
           return { ...state, sortBy: payload }
         }
         else {
           return { ...state, sortBy: payload }
-        }
+        };
+
       case "resetFilters":
         return { ...state, sortBy: payload };
+
       default:
-        break;
+        return { ...state };
     }
   };
+
+  const [state, dispatch] = useReducer(reducerFunction, {
+    isLoggedIn: false,
+    categoryData: [],
+    productData: [],
+    searchFilter: "",
+    sortBy: "",
+    foundUser: {}
+  }
+  );
+
+  const getCategoryData = async () => {
+    try {
+      const response = await fetch("/api/categories");
+      const data = await response.json();
+      dispatch({ type: "dataInitialization", payload: data.categories });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const getProductsData = async() => {
+    try{
+      const products = await fetch("/api/products");
+      const productsData = await products.json();
+      dispatch({ type: "updateData", payload: productsData.products });
+    }
+    catch(err){
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
-    getData();
+    getCategoryData();
+    getProductsData();
   }, []);
 
-  const [menuToggle, setMenuToggle] = useState(false);
-  const [state, dispatch] = useReducer(reducerFunction, { isLoggedIn: false,categoryData: [], productData: [], searchFilter: "", sortBy: "" });
   return (
-    <DataContext.Provider value={{ menuToggle, setMenuToggle, heroImage, state, dispatch}}>
+    <DataContext.Provider value={{ state, dispatch }}>
       {children}
     </DataContext.Provider>
   );

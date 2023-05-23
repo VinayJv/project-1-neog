@@ -1,9 +1,10 @@
 import { useDataContext } from "../context/dataContext";
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
+import { heroImage } from "../constants/heroImage";
 
 export function Home() {
-  const { heroImage, state } = useDataContext();
+  const { state } = useDataContext();
   const [heroImageId, setHeroImageId] = useState(0);
   const navigate = useNavigate();
   return (

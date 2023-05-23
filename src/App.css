@@ -316,6 +316,27 @@ footer{
   background-color: rgba(0,0,0,0%);
 }
 
+/* Profile Page */
+.cart-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  border: 1px solid blue;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.profile-details-container{
+  border:1px solid green;
+  padding: 1rem;
+}
+.logout-btn{
+  background-color: #EB4F47;
+  border: none;
+  padding: 0.2rem 0.2rem;
+  color: #ffffff;
+}
 
 
 
