@@ -8,7 +8,6 @@ export function ProductCard({data},changeLayout){
     const addToCart = async(event) => {
         if(state.isLoggedIn===true){
             const clickedItem = state.productData.find(({_id})=>_id===event.target.value);
-            console.log(clickedItem);
             const encodedToken = localStorage.getItem("encodedToken");
             try{
                 const response = await fetch("/api/user/cart",{
@@ -16,10 +15,12 @@ export function ProductCard({data},changeLayout){
                     headers: {
                         authorization: encodedToken,
                     },
-                    body: JSON.stringify(clickedItem),   
+                    body: {
+                        "product": JSON.stringify(clickedItem)
+                    }   
                 });
                 const data = await response.json();
-                console.log(data);
+                setCartData(data);
             }
             catch(err){
                 console.log(err);
