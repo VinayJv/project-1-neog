@@ -37,7 +37,7 @@ export function Store() {
                         <button className="btn-basic btn-hide">Filters</button>
                     </div>
                     <div className="products-container">
-                        {filteredData().map((productData) => <ProductCard data={productData} key={productData.id} />)}
+                        {filteredData().map((productData) => <ProductCard data={productData} key={productData._id} />)}
                     </div>
                 </div>
             </div>

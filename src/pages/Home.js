@@ -52,8 +52,8 @@ export function Home() {
       </div>
       <h2>CATEGORIES</h2>
       <div className="category-container">
-        {state.categoryData.map(({ id, categoryName, image }) => (
-          <div className="category-card" key={id}>
+        {state.categoryData.map(({ _id, categoryName, image }) => (
+          <div className="category-card" key={_id}>
             <img src={image} alt="" className="card-images"></img>
             <p className="card-description">{categoryName}</p>
           </div>

@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export function Login() {
     const { dispatch, state:{foundUser} } = useDataContext();
-    const [userData,setUserData] = useState({email:"adarshbalika@gmail.com",password:"adarshbalika"})
+    const [userData, setUserData] = useState({email:"adarshbalika@gmail.com",password:"adarshbalika"})
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -22,6 +22,7 @@ export function Login() {
             });
             const { foundUser,encodedToken } = await response.json();
             dispatch({ type: "Login"});
+            dispatch({type:"userFound",payload: foundUser});
             localStorage.setItem("encodedToken", encodedToken);
             navigate(location?.state?.from?.pathname);
         }

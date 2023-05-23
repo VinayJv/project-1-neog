@@ -10,6 +10,7 @@ import { useNavigate } from "react-router";
 const DataContext = createContext(null);
 
 export function ContextWrapper({ children }) {
+  const[cartData,setCartData] = useState([]);
   const navigate = useNavigate();
 
   const reducerFunction = (state, { type, payload }) => {
@@ -22,6 +23,9 @@ export function ContextWrapper({ children }) {
 
       case "Login":
         return { ...state, isLoggedIn: !state.isLoggedIn };
+
+      case "userFound":
+        return {...state,foundUser:payload};
 
       case "Logout":
         return { ...state, isLoggedIn: !state.isLoggedIn };
@@ -86,7 +90,7 @@ export function ContextWrapper({ children }) {
   }, []);
 
   return (
-    <DataContext.Provider value={{ state, dispatch }}>
+    <DataContext.Provider value={{ state, dispatch, cartData, setCartData}}>
       {children}
     </DataContext.Provider>
   );

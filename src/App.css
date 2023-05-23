@@ -317,25 +317,43 @@ footer{
 }
 
 /* Profile Page */
-.cart-container{
+.profile-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 80%;
-  border: 1px solid blue;
+  height: 80vh;
   margin: 0 auto;
   padding: 1rem;
+  background: url("https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--color-10);
 }
 .profile-details-container{
-  border:1px solid green;
+  width: 30%;
+  border:2px solid var(--color-10);
+  border-radius: 5px;
   padding: 1rem;
+  background-color: rgba(0,0,0,80%);
 }
 .logout-btn{
-  background-color: #EB4F47;
-  border: none;
-  padding: 0.2rem 0.2rem;
-  color: #ffffff;
+  padding: 0.5rem 1rem;
+  color: var(--color-10);
+  background-color: var(--color-60);
+  border: 2px solid var(--color-10);
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0%);
+}
+
+/* Cart Styling */
+.cart-container{
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid blue;
+  padding: 1rem;
 }
 
 
@@ -503,6 +521,14 @@ footer{
     height: 60vh;
   }
   .login-card{
+    width: 80%;
+  }
+
+  /* Profile Responsive */
+  .profile-container{ 
+    height: 60vh;
+  }
+  .profile-details-container{
     width: 80%;
   }
 }

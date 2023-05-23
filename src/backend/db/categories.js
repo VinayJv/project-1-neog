@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const categories = [
   {
-    id: uuid(),
+    _id: uuid(),
     categoryName: "Graphic Cards",
     description:
       "A graphics card is a computer expansion card that generates a feed of graphics output to a display device such as a monitor.",
@@ -15,7 +15,7 @@ export const categories = [
       "https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JhcGhpYyUyMGNhcmR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     categoryName: "CPU Coolers",
     description:
       "A component that draws heat away from a CPU chip and other hot-running chips such as a graphics processor (GPU).",
@@ -23,7 +23,7 @@ export const categories = [
       "https://images.unsplash.com/photo-1658673609646-9c7ba9514b89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Y3B1JTIwY29vbGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
   },
   {
-    id: uuid(),
+    _id: uuid(),
     categoryName: "Storage",
     description:
       "Computer data storage is a technology consisting of computer components and recording media that are used to retain digital data.",
