@@ -90,7 +90,7 @@ export function ContextWrapper({ children }) {
   }, []);
 
   return (
-    <DataContext.Provider value={{ state, dispatch }}>
+    <DataContext.Provider value={{ state, dispatch, cartData, setCartData }}>
       {children}
     </DataContext.Provider>
   );

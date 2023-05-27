@@ -1,11 +1,10 @@
 import { useDataContext } from "../context/dataContext";
 import { CartCard } from "../components/CartCard";
-import { useState } from "react";
 import { useEffect } from "react";
 
 export function Cart() {
+    const {cartData,setCartData} = useDataContext();
     const encodedToken = localStorage.getItem("encodedToken");
-    const [cartData, setCartData] = useState([]);
     const getCartData = async () => {
         const response = await fetch("/api/user/cart", {
             method: "GET",
@@ -30,7 +29,13 @@ export function Cart() {
                 }
             </div>
             <div className="cart-details-checkout-container">
-
+                <h1 style={{ textAlign: "center" }}>Cart Summary</h1>
+                <div className="cart-total">
+                    <span>Total Price: {<span>{cartData.reduce((acc, { price, qty }) => acc += price * qty, 0)}</span>}</span>
+                    <div style={{ marginTop: "0.5rem" }}>
+                        <button className="btn-basic">Checkout</button>
+                    </div>
+                </div>
             </div>
         </div>)
 }

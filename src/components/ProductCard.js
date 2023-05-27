@@ -23,7 +23,7 @@ export function ProductCard({data},changeLayout){
             }
         }
         else{
-            console.log("Please Login First");
+            alert("Please Login First");
         }   
     }
 
