@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export function Login() {
     const { dispatch } = useDataContext();
-    const [userData, setUserData] = useState({email:"adarshbalika@gmail.com",password:"adarshbalika"})
+    const [userData] = useState({email:"adarshbalika@gmail.com",password:"adarshbalika"})
     const location = useLocation();
     const navigate = useNavigate();
 
