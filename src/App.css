@@ -591,6 +591,17 @@ footer{
   .filters-container{
     display: none;
   }
+  .filters-container-active{
+    width: 40%;
+    border: 1px solid var(--color-10);
+    background-color: white;
+    box-shadow: 1px 1px 5px black;
+    padding: 0.5rem;
+    display: block;
+    position: absolute;
+    right: 10%;
+    top: 34.5%;
+  }
   .products-page{
     width: 100%;
     padding:1rem;

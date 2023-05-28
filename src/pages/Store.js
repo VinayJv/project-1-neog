@@ -3,8 +3,7 @@ import { useDataContext } from "../context/dataContext";
 import { ProductCard } from "../components/ProductCard";
 
 export function Store() {
-    const { state } = useDataContext();
-
+    const { state,menuToggle, setMenuToggle } = useDataContext();
 
     const filteredData = () => {
         let temp = [];
@@ -34,7 +33,7 @@ export function Store() {
                 <div className="products-page">
                     <div className="products-page-header">
                         <h1>Products</h1>
-                        <button className="btn-basic btn-hide">Filters</button>
+                        <button className="btn-basic btn-hide" onClick={()=>setMenuToggle(!menuToggle)}>Filters</button>
                     </div>
                     <div className="products-container">
                         {filteredData().map((productData) => <ProductCard data={productData} key={productData._id} />)}

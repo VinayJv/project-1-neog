@@ -2,10 +2,10 @@ import { useDataContext } from "../context/dataContext";
 import { useState } from "react";
 
 export function Filters() {
-    const { dispatch } = useDataContext();
+    const { dispatch, menuToggle} = useDataContext();
     const [selected, setSelected] = useState("");
     return (
-        <div className="filters-container">
+        <div className={menuToggle ? "filters-container-active" : "filters-container"}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <h4>Filters</h4>
                 <button className="btn-basic" onClick={() => {
