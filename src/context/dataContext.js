@@ -60,7 +60,6 @@ export function ContextWrapper({ children }) {
     productData: [],
     searchFilter: "",
     sortBy: "",
-    foundUser: {}
   }
   );
 

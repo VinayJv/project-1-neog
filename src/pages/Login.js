@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export function Login() {
-    const { dispatch, state:{foundUser} } = useDataContext();
+    const { dispatch } = useDataContext();
     const [userData, setUserData] = useState({email:"adarshbalika@gmail.com",password:"adarshbalika"})
     const location = useLocation();
     const navigate = useNavigate();
