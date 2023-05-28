@@ -412,6 +412,38 @@ footer{
   padding: 0.2rem 0.5rem;
 }
 
+/* Wishlist Styling */
+.wishlist-container{
+  margin: 0 auto;
+  width: 80%;
+}
+.wishlist-card{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wishlist-card-inner{
+  display: flex;
+  width: 70%;
+  border: 2px solid var(--color-10);
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+.wishlist-image{
+  width: 20%;
+  object-fit: cover;
+}
+.wishlist-details{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  width: 80%;
+}
+.wishlist-btn{
+  margin-bottom: 0.5rem;
+}
+
 
 
 

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import { useDataContext } from "../context/dataContext";
 
 export function ProductCard({data},changeLayout){
-    const { state, cartData, setCartData} = useDataContext();
+    const { state, cartData, setCartData,wishlistData,setWishlistData} = useDataContext();
     const navigate = useNavigate();
 
     const addToCart = async(event) => {
@@ -46,6 +46,36 @@ export function ProductCard({data},changeLayout){
         }  
     }
 
+    const addToWishlist = async(event) => {
+        const clickedItem = state.productData.find(({_id})=>_id===event.target.value);
+        const encodedToken = localStorage.getItem("encodedToken");
+        const isItemAlreadyPresent = wishlistData.findIndex((product)=>product._id===clickedItem._id);
+        if(state.isLoggedIn===true && isItemAlreadyPresent === -1){
+            try{
+                const response = await fetch("/api/user/wishlist",{
+                    method: "POST",
+                    headers: {
+                        authorization: encodedToken,
+                    },
+                    body: JSON.stringify({product: clickedItem}),   
+                });
+                const {wishlist} = await response.json();
+                setWishlistData(wishlist);
+            }
+            catch(err){
+                console.log(err);
+            }
+        }
+        else{
+            if(state.isLoggedIn===false){
+                alert("Please Login First");
+            }
+            else{
+                alert("Already Added To Wishlist");
+            }
+        }
+    }
+
     
 
 
@@ -58,7 +88,7 @@ export function ProductCard({data},changeLayout){
             <p style={{color:"green"}}>20% discount on all products</p>
             <div className="card-btn-container">
                 <button className="btn-basic" onClick={addToCart} value={data._id}>Add To Cart</button> 
-                <button className="btn-basic">Add To Wishlist</button>
+                <button className="btn-basic" onClick={addToWishlist} value={data._id}>Add To Wishlist</button>
             </div>
         </div>
     </div>)

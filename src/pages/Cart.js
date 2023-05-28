@@ -1,24 +1,8 @@
 import { useDataContext } from "../context/dataContext";
 import { CartCard } from "../components/CartCard";
-import { useEffect } from "react";
 
 export function Cart() {
     const { cartData } = useDataContext();
-    // const getCartData = async () => {
-    //     const response = await fetch("/api/user/cart", {
-    //         method: "GET",
-    //         headers: {
-    //             authorization: encodedToken
-    //         }
-    //     });
-    //     const { cart } = await response.json();
-    //     setCartData(cart);
-    // };
-
-    // useEffect(() => {
-    //     getCartData();
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // },[]);
 
     return (
         <div className="cart-parent">

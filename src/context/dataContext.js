@@ -11,6 +11,7 @@ const DataContext = createContext(null);
 
 export function ContextWrapper({ children }) {
   const[cartData,setCartData] = useState([]);
+  const[wishlistData,setWishlistData] = useState([]);
   const navigate = useNavigate();
 
   const reducerFunction = (state, { type, payload }) => {
@@ -90,7 +91,7 @@ export function ContextWrapper({ children }) {
   }, []);
 
   return (
-    <DataContext.Provider value={{ state, dispatch, cartData, setCartData }}>
+    <DataContext.Provider value={{ state, dispatch, cartData, setCartData, wishlistData, setWishlistData }}>
       {children}
     </DataContext.Provider>
   );
