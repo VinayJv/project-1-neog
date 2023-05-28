@@ -634,6 +634,17 @@ footer{
     width: 100%;
     padding: 1rem;
   }
+  /* Wishlist Responsive */
+  .wishlist-card-inner{
+    width: 100%;  
+  }
+  .wishlist-image{
+    width: 30%;
+    object-fit: cover;
+  }
+  .wishlist-details{
+    width: 70%;
+  }
 }
 @media only screen and (max-width: 375px){
   *{
