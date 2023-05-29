@@ -7,6 +7,7 @@ export function Store() {
 
     const filteredData = () => {
         let temp = [];
+
         const sortData = (sortBy) => {
             if (sortBy === "LowToHigh") {
                 return temp.slice().sort((a, b) => a.price - b.price)
@@ -16,8 +17,14 @@ export function Store() {
             }
         };
 
+        const filterByCategory = (category) => {
+            return temp.filter((product)=>category.includes(product.categoryName));
+        }
+
         temp = state.searchFilter === "" ? state.productData : state.productData.filter((product)=>product.title.toUpperCase().includes(state.searchFilter.toUpperCase()));
         temp = state.sortBy === "" ? temp : sortData(state.sortBy);
+        temp = state.range === 0 ? temp : state.productData.filter((product)=> product.price < state.range);
+        temp = state.category.length === 0 ? temp : filterByCategory(state.category);
 
         return temp;
     }
@@ -32,7 +39,7 @@ export function Store() {
                 <Filters />
                 <div className="products-page">
                     <div className="products-page-header">
-                        <h1>Products</h1>
+                        <h1>Products ({filteredData().length})</h1>
                         <button className="btn-basic btn-hide" onClick={()=>setMenuToggle(!menuToggle)}>Filters</button>
                     </div>
                     <div className="products-container">

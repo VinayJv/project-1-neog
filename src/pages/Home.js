@@ -4,9 +4,15 @@ import { useNavigate } from "react-router";
 import { heroImage } from "../constants/heroImage";
 
 export function Home() {
-  const { state } = useDataContext();
+  const { state, dispatch} = useDataContext();
   const [heroImageId, setHeroImageId] = useState(0);
   const navigate = useNavigate();
+
+  const homePageHandler = (event) => {
+    dispatch({type:"setCategoryHome",payload: event.target.id});
+    navigate("/store");
+  };
+
   return (
     <div className="home">
       <div className="hero-container">
@@ -55,7 +61,7 @@ export function Home() {
         {state.categoryData.map(({ _id, categoryName, image }) => (
           <div className="category-card" key={_id}>
             <img src={image} alt="" className="card-images"></img>
-            <p className="card-description">{categoryName}</p>
+            <p className="card-description" onClick={homePageHandler} id={categoryName}>{categoryName}</p>
           </div>
         ))}
       </div>

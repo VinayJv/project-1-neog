@@ -13,6 +13,7 @@ export function ContextWrapper({ children }) {
   const[cartData,setCartData] = useState([]);
   const[wishlistData,setWishlistData] = useState([]);
   const [menuToggle, setMenuToggle] = useState(false);
+  const [selected, setSelected] = useState([]);
   const navigate = useNavigate();
 
   const reducerFunction = (state, { type, payload }) => {
@@ -47,8 +48,20 @@ export function ContextWrapper({ children }) {
           return { ...state, sortBy: payload }
         };
 
+      case "setRange":
+        return {...state, range: payload};
+
+      case "setCategory":
+        return {...state, category: [...state.category, payload]};
+       
+      case "setCategoryHome":
+        return {...state, category: [payload]};
+
+      case "removeCategory":
+        return {...state, category: state.category.filter((categoryName)=> categoryName !== payload)}
+
       case "resetFilters":
-        return { ...state, sortBy: payload };
+        return { ...state, sortBy: payload, range: 0, category: [] };
 
       default:
         return { ...state };
@@ -61,6 +74,8 @@ export function ContextWrapper({ children }) {
     productData: [],
     searchFilter: "",
     sortBy: "",
+    range: 0,
+    category: [],
   }
   );
 
@@ -91,7 +106,7 @@ export function ContextWrapper({ children }) {
   }, []);
 
   return (
-    <DataContext.Provider value={{ state, dispatch, cartData, setCartData, wishlistData, setWishlistData, menuToggle, setMenuToggle }}>
+    <DataContext.Provider value={{ state, dispatch, cartData, setCartData, wishlistData, setWishlistData, menuToggle, setMenuToggle, selected, setSelected }}>
       {children}
     </DataContext.Provider>
   );
