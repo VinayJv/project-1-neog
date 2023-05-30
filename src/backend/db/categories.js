@@ -28,6 +28,6 @@ export const categories = [
     description:
       "Computer data storage is a technology consisting of computer components and recording media that are used to retain digital data.",
     image:
-      "https://images.unsplash.com/photo-1615293889204-6db03c596147?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8c3NkfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60",
+      "https://images.unsplash.com/photo-1628557118391-56cd62c9f2cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80",
   },
 ];

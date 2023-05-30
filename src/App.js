@@ -18,19 +18,35 @@ import { Login } from "./pages/Login";
 import { Auth } from "./components/Auth";
 import { Signup } from "./pages/Signup";
 import { Profile } from "./pages/Profile";
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { Triangle } from 'react-loader-spinner';
 
 function App() {
   const { dispatch } = useDataContext();
   const [menuToggle, setMenuToggle] = useState(false);
+  const [loader, setLoader] = useState(true);
   const navigate = useNavigate();
 
   const showMenu = () => {
     setMenuToggle(!menuToggle);
   };
 
+  useEffect(()=>{
+    setTimeout(()=>{
+      setLoader(false);
+    },3000)
+  },[])
+
   return (
-    <div className="App">
+    loader ? <div className="loader-container"><Triangle
+      height="80"
+      width="80"
+      color="#EB4F47"
+      ariaLabel="triangle-loading"
+      wrapperStyle={{}}
+      wrapperClassName="loader"
+      visible={true}
+    /></div> : <div className="App">
       <div className="nav-bar" id="nav-bar">
         <div className="logo-container">
           <FaPhoenixSquadron size={50} style={{ color: "#EB4F47" }} onClick={() => navigate("/")} />
@@ -39,22 +55,22 @@ function App() {
         <header>
           <ul className={menuToggle ? "nav-item-container-active" : "nav-item-container"}>
             <li>
-              <NavLink to="/store" onClick={()=>setMenuToggle(!menuToggle)}>
+              <NavLink to="/store" onClick={() => setMenuToggle(!menuToggle)}>
                 <AiOutlineShopping size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/cart" onClick={()=>setMenuToggle(!menuToggle)}>
+              <NavLink to="/cart" onClick={() => setMenuToggle(!menuToggle)}>
                 <AiOutlineShoppingCart size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/wishlist" onClick={()=>setMenuToggle(!menuToggle)}>
+              <NavLink to="/wishlist" onClick={() => setMenuToggle(!menuToggle)}>
                 <AiOutlineHeart size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
             <li>
-              <NavLink to="/profile" onClick={()=>setMenuToggle(!menuToggle)}>
+              <NavLink to="/profile" onClick={() => setMenuToggle(!menuToggle)}>
                 <BsPerson size={30} style={{ color: "#EB4F47" }} />
               </NavLink>
             </li>
