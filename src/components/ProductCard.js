@@ -1,9 +1,18 @@
 import { useNavigate } from "react-router";
 import { useDataContext } from "../context/dataContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export function ProductCard({data},changeLayout){
     const { state, cartData, setCartData,wishlistData,setWishlistData} = useDataContext();
     const navigate = useNavigate();
+
+    const notify = (message) => {
+        toast(message,{
+            className: "toast-message"
+        });
+    };
 
     const addToCart = async(event) => {
         const clickedItem = state.productData.find(({_id})=>_id===event.target.value);
@@ -20,6 +29,7 @@ export function ProductCard({data},changeLayout){
                 });
                 const {cart} = await response.json();
                 setCartData(cart);
+                notify("Item Added To Cart");
             }
             catch(err){
                 console.log(err);
@@ -27,7 +37,7 @@ export function ProductCard({data},changeLayout){
         }
         else{
             if(state.isLoggedIn===false){
-                alert("Please Login First");
+                notify("Please Login First");
             }
             else{
                 const incrementQty = async() => {
@@ -42,6 +52,7 @@ export function ProductCard({data},changeLayout){
                     setCartData(cart);
                 };
                 incrementQty();
+                notify("Increased Item Quantity In Cart");
             }
         }  
     }
@@ -61,6 +72,7 @@ export function ProductCard({data},changeLayout){
                 });
                 const {wishlist} = await response.json();
                 setWishlistData(wishlist);
+                notify("Item Added To Wishlist");
             }
             catch(err){
                 console.log(err);
@@ -68,10 +80,10 @@ export function ProductCard({data},changeLayout){
         }
         else{
             if(state.isLoggedIn===false){
-                alert("Please Login First");
+                notify("Please Login First");
             }
             else{
-                alert("Already Added To Wishlist");
+                notify("Already In Wishlist");
             }
         }
     }
@@ -91,5 +103,10 @@ export function ProductCard({data},changeLayout){
                 <button className="btn-basic" onClick={addToWishlist} value={data._id}>Add To Wishlist</button>
             </div>
         </div>
+        <ToastContainer 
+        autoClose={1500}
+        hideProgressBar={true}
+        pauseOnHover={false}
+        />
     </div>)
 }

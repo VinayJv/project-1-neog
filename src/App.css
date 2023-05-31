@@ -53,6 +53,11 @@ footer{
   justify-content: center;
   align-items: center;
 }
+.toast-message{
+  background-color: var(--color-10) !important;
+  color: var(--color-60) !important;
+  box-shadow: none !important;
+}
 
 /* Navigation Bar */
 

@@ -1,10 +1,18 @@
 import { useDataContext } from "../context/dataContext";
 import { useEffect, useState } from "react";
 import { Triangle } from "react-loader-spinner";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Wishlist() {
     const { wishlistData, setWishlistData, state, cartData, setCartData } = useDataContext();
     const [loader, setLoader] = useState(true);
+
+    const notify = (message) => {
+        toast(message,{
+            className: "toast-message"
+        });
+    };
 
     const removeWishlistItem = async (event) => {
         const productId = event.target.value;
@@ -18,6 +26,7 @@ export function Wishlist() {
             });
             const { wishlist } = await response.json();
             setWishlistData(wishlist);
+            notify("Item Removed From Wishlist");
         }
         catch (err) {
             console.log(err);
@@ -94,6 +103,11 @@ export function Wishlist() {
                     </div>
                 </div>)}
             </div>
+            <ToastContainer 
+        autoClose={1500}
+        hideProgressBar={true}
+        pauseOnHover={false}
+        />
         </div>
     )
 }

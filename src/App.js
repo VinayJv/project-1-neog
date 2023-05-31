@@ -18,8 +18,9 @@ import { Login } from "./pages/Login";
 import { Auth } from "./components/Auth";
 import { Signup } from "./pages/Signup";
 import { Profile } from "./pages/Profile";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Triangle } from 'react-loader-spinner';
+
 
 function App() {
   const { dispatch } = useDataContext();
@@ -31,11 +32,11 @@ function App() {
     setMenuToggle(!menuToggle);
   };
 
-  useEffect(()=>{
-    setTimeout(()=>{
+  useEffect(() => {
+    setTimeout(() => {
       setLoader(false);
-    },3000)
-  },[])
+    }, 3000)
+  }, [])
 
   return (
     loader ? <div className="loader-container"><Triangle

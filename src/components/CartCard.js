@@ -1,8 +1,16 @@
 import { useDataContext } from "../context/dataContext";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function CartCard({ data }) {
     const { setCartData } = useDataContext();
     const encodedToken = localStorage.getItem("encodedToken");
+
+    const notify = (message) => {
+        toast(message,{
+            className: "toast-message"
+        });
+    };
 
 
     const incrementQty = async (event) => {
@@ -39,6 +47,7 @@ export function CartCard({ data }) {
         });
         const { cart } = await response.json();
         setCartData(cart);
+        notify("Item Deleted From Cart");
     };
 
     return (
@@ -52,5 +61,10 @@ export function CartCard({ data }) {
                     {data.qty} <button className="qty-btn" value={data._id} onClick={incrementQty}>+</button>
                 </div>
             </div>
+            <ToastContainer 
+        autoClose={1500}
+        hideProgressBar={true}
+        pauseOnHover={false}
+        />
         </div>)
 }
