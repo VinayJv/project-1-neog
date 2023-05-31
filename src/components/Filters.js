@@ -75,6 +75,45 @@ export function Filters() {
                     <label htmlFor="Storage">Storage</label>
                 </div>
             </div>
+            <div className="sort-container">
+                <p style={{ fontSize: "1.2rem", margin: "0.2rem" }}>Ratings: </p>
+                <div>
+                    <input type="radio" id="radioRating4.5" name="radio" value={4.5} onChange={(event)=>{
+                        if(event.target.checked===true){
+                            setSelected([...selected, event.target]);
+                            dispatch({type:"FilterByRating",payload: event.target.value})
+                        }
+                    }}></input>
+                    <label htmlFor="radioRating"> Above 4.5</label>
+                </div>
+                <div>
+                    <input type="radio" id="radioRating4" name="radio" value={4.0} onChange={(event)=>{
+                        if(event.target.checked===true){
+                            setSelected([...selected, event.target]);
+                            dispatch({type:"FilterByRating",payload: event.target.value})
+                        }
+                    }}></input>
+                    <label htmlFor="radioRating4"> Above 4.0</label>
+                </div>
+                <div>
+                    <input type="radio" id="radioRating3.5" name="radio" value={3.5} onChange={(event)=>{
+                        if(event.target.checked===true){
+                            setSelected([...selected, event.target]);
+                            dispatch({type:"FilterByRating",payload: event.target.value})
+                        }
+                    }}></input>
+                    <label htmlFor="radioRating3.5"> Above 3.5 </label>
+                </div>
+                <div>
+                    <input type="radio" id="radioRating3.0" name="radio" value={3.0} onChange={(event)=>{
+                        if(event.target.checked===true){
+                            setSelected([...selected, event.target]);
+                            dispatch({type:"FilterByRating",payload: event.target.value})
+                        }
+                    }}></input>
+                    <label htmlFor="radioRating3.0"> Above 3.0 </label>
+                </div>
+            </div>
         </div>
     )
 }

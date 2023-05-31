@@ -48,6 +48,9 @@ export function ContextWrapper({ children }) {
           return { ...state, sortBy: payload }
         };
 
+      case "FilterByRating":
+        return{...state, rating: payload}
+
       case "setRange":
         return {...state, range: payload};
 
@@ -61,7 +64,7 @@ export function ContextWrapper({ children }) {
         return {...state, category: state.category.filter((categoryName)=> categoryName !== payload)}
 
       case "resetFilters":
-        return { ...state, sortBy: payload, range: 0, category: [] };
+        return { ...state, sortBy: payload, range: 0, category: [], rating: 0 };
 
       default:
         return { ...state };
@@ -76,6 +79,7 @@ export function ContextWrapper({ children }) {
     sortBy: "",
     range: 0,
     category: [],
+    rating: 0
   }
   );
 
