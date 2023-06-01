@@ -10,6 +10,7 @@ export function Wishlist() {
 
     const notify = (message) => {
         toast(message,{
+            position: "bottom-right",
             className: "toast-message"
         });
     };

@@ -128,7 +128,7 @@ footer{
   display: flex;
   flex-direction: column;
   width: 33.33%;
-  height: 30vh;
+  height: 14rem;
 }
 .card-images{
   width: 100%;
@@ -137,7 +137,7 @@ footer{
 }
 .card-description{
   position: relative;
-  top:-50%;
+  top:-55%;
   flex-grow: 1;
   padding: 0.5rem;
   text-align: center;
@@ -188,8 +188,10 @@ footer{
   color: white;
   background-color: var(--color-10);
 }
+
+/* Footer Styling */
 .footer-image-container{
-  height: 40vh;
+  height: 25rem;
 }
 .footer-img{
   width: 100%;
@@ -265,7 +267,7 @@ footer{
 /* Store Page Styling */
 .store-img{
   width: 100%;
-  height: 35vh;
+  height: 20rem;
   object-fit: cover;
 }
 .store-page{
@@ -302,7 +304,7 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
+  height: 40rem;
   width: 80%;
   margin: 0 auto;
   background: url("https://images.unsplash.com/photo-1630187585374-8e43ede3792e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
@@ -340,7 +342,7 @@ footer{
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: 80vh;
+  height: 40rem;
   margin: 0 auto;
   padding: 1rem;
   background: url("https://images.unsplash.com/photo-1587202372634-32705e3bf49c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");

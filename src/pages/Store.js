@@ -26,7 +26,7 @@ export function Store() {
 
         temp = state.searchFilter === "" ? state.productData : state.productData.filter((product)=>product.title.toUpperCase().includes(state.searchFilter.toUpperCase()));
         temp = state.sortBy === "" ? temp : sortData(state.sortBy);
-        temp = state.range === 0 ? temp : state.productData.filter((product)=> product.price < state.range);
+        temp = state.range === 0 ? temp : temp.filter((product)=> product.price < state.range);
         temp = state.category.length === 0 ? temp : filterByCategory(state.category);
         temp = state.rating === 0 ? temp : temp.filter((product)=>product.rating>=state.rating);
 

@@ -8,6 +8,7 @@ export function CartCard({ data }) {
 
     const notify = (message) => {
         toast(message,{
+            position: "bottom-right",
             className: "toast-message"
         });
     };
@@ -61,7 +62,7 @@ export function CartCard({ data }) {
                     {data.qty} <button className="qty-btn" value={data._id} onClick={incrementQty}>+</button>
                 </div>
             </div>
-            <ToastContainer 
+            <ToastContainer
         autoClose={1500}
         hideProgressBar={true}
         pauseOnHover={false}

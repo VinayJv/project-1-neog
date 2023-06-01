@@ -10,6 +10,7 @@ export function ProductCard({data},changeLayout){
 
     const notify = (message) => {
         toast(message,{
+            position: "bottom-right",
             className: "toast-message"
         });
     };
