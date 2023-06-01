@@ -20,7 +20,9 @@ import { Signup } from "./pages/Signup";
 import { Profile } from "./pages/Profile";
 import { useState, useEffect } from "react";
 import { Triangle } from 'react-loader-spinner';
-
+import {AiOutlineInstagram} from "react-icons/ai";
+import {AiFillGithub} from "react-icons/ai";
+import {FiTwitter} from "react-icons/fi";
 
 function App() {
   const { dispatch } = useDataContext();
@@ -94,29 +96,22 @@ function App() {
           <Route path="/mock-api" element={<Mockman />}></Route>
         </Routes>
       </div>
-      <footer>
-        <div className="footer-image-container">
-          <img src="https://images.unsplash.com/photo-1543973277-5020ef836640?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" className="footer-img"></img>
-        </div>
-        <div className="footer-brand">
-          <h4>RGB Peripherals ©</h4>
-          <p>
-            Useful Links <br></br>
-            Terms and Condition <br></br>
-            Privacy Policy <br></br>
-            Shipping Policy<br></br>
-          </p>
-        </div>
-        <div className="footer-connect">
-          <h4>Help & Support</h4>
-          <p>
-            Contact Us <br></br>
-            About Us <br></br>
-            Payment Options<br></br>
-            Service Centers
-          </p>
-        </div>
-      </footer>
+        <footer>
+          <div className="footer-image-container">
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <FaPhoenixSquadron size={50} style={{ color: "#EB4F47" }} onClick={() => navigate("/")} className="footer-icons" />
+              <span style={{ color: "#EB4F47" }}>RGB Peripherals ™</span>
+            </div>
+            <p style={{ color: "#EB4F47" }} className="hide-ui">Made with 💕 by Vinay Jatav</p>
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <a href="https://github.com/VinayJv/project-1-neog" target="_blank">
+                <AiFillGithub size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
+              </a>
+              <AiOutlineInstagram size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
+              <FiTwitter size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
+            </div>
+          </div>
+        </footer>
     </div>
   );
 }
