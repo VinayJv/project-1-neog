@@ -104,7 +104,7 @@ function App() {
             </div>
             <p style={{ color: "#EB4F47" }} className="hide-ui">Made with 💕 by Vinay Jatav</p>
             <div style={{ display: "flex", gap: "0.5rem" }}>
-              <a href="https://github.com/VinayJv/project-1-neog" target="_blank">
+              <a href="https://github.com/VinayJv/project-1-neog" target="_blank" rel="noreferrer">
                 <AiFillGithub size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
               </a>
               <AiOutlineInstagram size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
