@@ -62,7 +62,6 @@ export function Home() {
       <div className="category-container">
         {state.categoryData.map(({ _id, categoryName, image }) => (
           <div className="category-card" key={_id}>
-            <img src={image} alt="" className="card-images"></img>
             <p className="card-description" onClick={homePageHandler} id={categoryName}>{categoryName}</p>
           </div>
         ))}
