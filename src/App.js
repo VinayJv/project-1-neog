@@ -102,7 +102,7 @@ function App() {
               <FaPhoenixSquadron size={50} style={{ color: "#EB4F47" }} onClick={() => navigate("/")} className="footer-icons" />
               <span style={{ color: "#EB4F47" }}>RGB Peripherals ™</span>
             </div>
-            <p style={{ color: "#EB4F47" }} className="hide-ui">Made with 💕 by Vinay Jatav</p>
+            <p style={{ color: "#EB4F47" }}>Made with 💕 by Vinay Jatav</p>
             <div style={{ display: "flex", gap: "0.5rem" }}>
               <a href="https://github.com/VinayJv/project-1-neog" target="_blank" rel="noreferrer">
                 <AiFillGithub size={40} style={{ color: "#EB4F47" }} className="footer-icons" />

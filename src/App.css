@@ -616,7 +616,9 @@ input[type=radio] {
   .wishlist-details{
     width: 70%;
   }
-  .hide-ui{
-    display: none;
+  /* Footer Responsive */
+  .footer-image-container{
+    flex-direction: column;
+    gap: 1rem;
   }
 }
