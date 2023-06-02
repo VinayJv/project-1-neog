@@ -1,9 +1,20 @@
 import { useDataContext } from "../context/dataContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Filters() {
-    const { dispatch, menuToggle, selected, setSelected } = useDataContext();
+    const { dispatch, menuToggle, selected, setSelected, state } = useDataContext();
     const [maxRange, setMaxRange] = useState(100000);
+
+    const markCheckbox = (state) => {
+        setSelected([document.getElementById(state.category[0])]);
+        if(state.category.length !== 0){
+            document.getElementById(state.category[0]).checked = true;  
+        }
+    };
+
+    useEffect(()=>{
+        markCheckbox(state);
+    },[])
 
     const rangeHandler = (event) => {
         setMaxRange(event.target.value);
