@@ -55,6 +55,15 @@ input[type=radio] {
 .accent-color{
   accent-color: var(--color-10);
 }
+.callout{
+  background-color: #ffffff;
+  border-radius: 50%;
+  font-weight: bolder;
+  color: var(--color-10);
+}
+.callout-container{
+  display: flex;
+}
 
 /* Navigation Bar */
 

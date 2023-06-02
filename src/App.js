@@ -20,12 +20,13 @@ import { Signup } from "./pages/Signup";
 import { Profile } from "./pages/Profile";
 import { useState, useEffect } from "react";
 import { Triangle } from 'react-loader-spinner';
-import {AiOutlineInstagram} from "react-icons/ai";
-import {AiFillGithub} from "react-icons/ai";
-import {FiTwitter} from "react-icons/fi";
+import { AiOutlineInstagram } from "react-icons/ai";
+import { AiFillGithub } from "react-icons/ai";
+import { FiTwitter } from "react-icons/fi";
+import { Callouts } from "./components/Callouts";
 
 function App() {
-  const { dispatch } = useDataContext();
+  const { dispatch, state } = useDataContext();
   const [menuToggle, setMenuToggle] = useState(false);
   const [loader, setLoader] = useState(true);
   const navigate = useNavigate();
@@ -64,12 +65,18 @@ function App() {
             </li>
             <li>
               <NavLink to="/cart" onClick={() => setMenuToggle(!menuToggle)}>
-                <AiOutlineShoppingCart size={30} style={{ color: "#EB4F47" }} />
+                <div className="callout-container">
+                  <AiOutlineShoppingCart size={30} style={{ color: "#EB4F47" }} />
+                  {state.isLoggedIn && <Callouts />}
+                </div>
               </NavLink>
             </li>
             <li>
               <NavLink to="/wishlist" onClick={() => setMenuToggle(!menuToggle)}>
-                <AiOutlineHeart size={30} style={{ color: "#EB4F47" }} />
+                <div className="callout-container">
+                  <AiOutlineHeart size={30} style={{ color: "#EB4F47" }} />
+                  {state.isLoggedIn && <Callouts wishlist />}
+                </div>
               </NavLink>
             </li>
             <li>
@@ -96,22 +103,22 @@ function App() {
           <Route path="/mock-api" element={<Mockman />}></Route>
         </Routes>
       </div>
-        <footer>
-          <div className="footer-image-container">
-            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-              <FaPhoenixSquadron size={50} style={{ color: "#EB4F47" }} onClick={() => navigate("/")} className="footer-icons" />
-              <span style={{ color: "#EB4F47" }}>RGB Peripherals ™</span>
-            </div>
-            <p style={{ color: "#EB4F47" }}>Made with 💕 by Vinay Jatav</p>
-            <div style={{ display: "flex", gap: "0.5rem" }}>
-              <a href="https://github.com/VinayJv/project-1-neog" target="_blank" rel="noreferrer">
-                <AiFillGithub size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
-              </a>
-              <AiOutlineInstagram size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
-              <FiTwitter size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
-            </div>
+      <footer>
+        <div className="footer-image-container">
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <FaPhoenixSquadron size={50} style={{ color: "#EB4F47" }} onClick={() => navigate("/")} className="footer-icons" />
+            <span style={{ color: "#EB4F47" }}>RGB Peripherals ™</span>
           </div>
-        </footer>
+          <p style={{ color: "#EB4F47" }}>Made with 💕 by Vinay Jatav</p>
+          <div style={{ display: "flex", gap: "0.5rem" }}>
+            <a href="https://github.com/VinayJv/project-1-neog" target="_blank" rel="noreferrer">
+              <AiFillGithub size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
+            </a>
+            <AiOutlineInstagram size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
+            <FiTwitter size={40} style={{ color: "#EB4F47" }} className="footer-icons" />
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
