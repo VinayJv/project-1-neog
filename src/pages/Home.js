@@ -19,7 +19,7 @@ export function Home() {
         <img
           style={{cursor:"pointer"}}
           src={heroImage[heroImageId].image}
-          onClick={()=>navigate(`/store/${heroImage[heroImageId]._id}`)}
+          onClick={()=>navigate(`/store`)}
           alt=""
           className="hero-image"
         ></img>
