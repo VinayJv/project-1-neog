@@ -6,8 +6,8 @@ export function Filters() {
     const [maxRange, setMaxRange] = useState(100000);
 
     const markCheckbox = (state) => {
-        setSelected([document.getElementById(state.category[0])]);
         if(state.category.length !== 0){
+            setSelected([document.getElementById(state.category[0])]);
             document.getElementById(state.category[0]).checked = true;  
         }
     };
