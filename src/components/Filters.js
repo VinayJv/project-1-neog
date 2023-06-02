@@ -14,7 +14,7 @@ export function Filters() {
 
     useEffect(()=>{
         markCheckbox(state);
-    },[])
+    },[]);
 
     const rangeHandler = (event) => {
         setMaxRange(event.target.value);
@@ -45,7 +45,7 @@ export function Filters() {
             <div className="sort-container">
                 <p style={{ fontSize: "1.2rem", margin: "0.2rem" }}>Sort: </p>
                 <div>
-                    <input type="radio" name="priceRadio" id="LowToHigh" value="LowToHigh" onChange={(event) => {
+                    <input className="accent-color" type="radio" name="priceRadio" id="LowToHigh" value="LowToHigh" onChange={(event) => {
                         if (event.target.checked === true) {
                             setSelected([...selected, event.target]);
                             dispatch({ type: "SortData", payload: event.target.value })
@@ -54,7 +54,7 @@ export function Filters() {
                     <label htmlFor="LowToHigh" style={{ margin: "0.2rem" }}> Low To High</label>
                 </div>
                 <div>
-                    <input type="radio" name="priceRadio" id="HighToLow" value="HighToLow" onChange={(event) => {
+                    <input className="accent-color" type="radio" name="priceRadio" id="HighToLow" value="HighToLow" onChange={(event) => {
                         if (event.target.checked === true) {
                             setSelected([...selected, event.target]);
                             dispatch({ type: "SortData", payload: event.target.value })
@@ -65,7 +65,7 @@ export function Filters() {
             </div>
             <div className="sort-container">
                 <p style={{ fontSize: "1.2rem", margin: "0.2rem" }}>Price Range: </p>
-                <input type="range" id="priceRange" min="1000" max="300000" onChange={rangeHandler} style={{ width: "100%" }} value={maxRange}></input>
+                <input type="range" id="priceRange" min="1000" max="300000" onChange={rangeHandler} style={{ width: "100%" }} value={maxRange} className="accent-color"></input>
                 <div style={{ display: "flex", justifyContent: "space-between" }}>
                     <span>₹ 1000</span>
                     <span>₹ {maxRange}</span>
@@ -89,7 +89,7 @@ export function Filters() {
             <div className="sort-container">
                 <p style={{ fontSize: "1.2rem", margin: "0.2rem" }}>Ratings: </p>
                 <div>
-                    <input type="radio" id="radioRating4.5" name="radio" value={4.5} onChange={(event)=>{
+                    <input className="accent-color" type="radio" id="radioRating4.5" name="radio" value={4.5} onChange={(event)=>{
                         if(event.target.checked===true){
                             setSelected([...selected, event.target]);
                             dispatch({type:"FilterByRating",payload: event.target.value})
@@ -98,7 +98,7 @@ export function Filters() {
                     <label htmlFor="radioRating"> Above 4.5</label>
                 </div>
                 <div>
-                    <input type="radio" id="radioRating4" name="radio" value={4.0} onChange={(event)=>{
+                    <input className="accent-color" type="radio" id="radioRating4" name="radio" value={4.0} onChange={(event)=>{
                         if(event.target.checked===true){
                             setSelected([...selected, event.target]);
                             dispatch({type:"FilterByRating",payload: event.target.value})
@@ -107,7 +107,7 @@ export function Filters() {
                     <label htmlFor="radioRating4"> Above 4.0</label>
                 </div>
                 <div>
-                    <input type="radio" id="radioRating3.5" name="radio" value={3.5} onChange={(event)=>{
+                    <input className="accent-color" type="radio" id="radioRating3.5" name="radio" value={3.5} onChange={(event)=>{
                         if(event.target.checked===true){
                             setSelected([...selected, event.target]);
                             dispatch({type:"FilterByRating",payload: event.target.value})
@@ -116,7 +116,7 @@ export function Filters() {
                     <label htmlFor="radioRating3.5"> Above 3.5 </label>
                 </div>
                 <div>
-                    <input type="radio" id="radioRating3.0" name="radio" value={3.0} onChange={(event)=>{
+                    <input className="accent-color" type="radio" id="radioRating3.0" name="radio" value={3.0} onChange={(event)=>{
                         if(event.target.checked===true){
                             setSelected([...selected, event.target]);
                             dispatch({type:"FilterByRating",payload: event.target.value})

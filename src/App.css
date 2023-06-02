@@ -52,6 +52,9 @@ input[type=radio] {
   color: var(--color-60) !important;
   box-shadow: none !important;
 }
+.accent-color{
+  accent-color: var(--color-10);
+}
 
 /* Navigation Bar */
 
@@ -240,6 +243,7 @@ input[type=radio] {
   padding: 0.5rem;
 }
 .categoryCheckBox{
+  accent-color: var(--color-10);
   scale: 1.5;
   margin-right: 0.5rem;
   margin-bottom: 0.5rem;
