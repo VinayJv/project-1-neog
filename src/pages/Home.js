@@ -29,7 +29,7 @@ export function Home() {
               return (
                 <input
                   type="radio"
-                  className="radio-input"
+                  className="radio-input accent-color"
                   key={index}
                   name="radio"
                   defaultChecked
@@ -44,7 +44,7 @@ export function Home() {
               return (
                 <input
                   type="radio"
-                  className="radio-input"
+                  className="radio-input accent-color"
                   key={index}
                   name="radio"
                   onChange={(event) => {
