@@ -13,7 +13,7 @@ export const users = [
     lastName: "Balika",
     email: "adarshbalika@gmail.com",
     password: "adarshbalika",
-    address:[{city:"Port Joaquinport", state:"Oregon", zipcode:"36422"}],
+    address:[{firstName:"Adarsh Balika",city:"Port Joaquinport", state:"Oregon", zipcode:"36422"}],
     createdAt: formatDate(),
     updatedAt: formatDate(),
   }

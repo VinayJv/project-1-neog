@@ -6,7 +6,7 @@ import { Triangle } from "react-loader-spinner";
 
 export function Login() {
     const { dispatch } = useDataContext();
-    const [userData] = useState({email:"adarshbalika@gmail.com",password:"adarshbalika"});
+    const testUser = {email:"adarshbalika@gmail.com",password:"adarshbalika"};
     const [loader,setLoader] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ export function Login() {
         try {
             const response = await fetch("/api/auth/login", {
                 method: "POST",
-                body: JSON.stringify(userData),
+                body: JSON.stringify(testUser),
             });
             const { foundUser,encodedToken } = await response.json();
             dispatch({ type: "Login"});
