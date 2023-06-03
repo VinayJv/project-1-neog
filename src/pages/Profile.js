@@ -13,18 +13,7 @@ export function Profile() {
 
   const inputChangeHandler = (event) => {
     const type = event.target.id;
-    if(type === "name"){
-      newAddress.firstName = event.target.value;
-    }
-    else if(type==="zipcode"){
-      newAddress.zipcode = event.target.value;
-    }
-    else if(type==="city"){
-      newAddress.city = event.target.value;
-    }
-    else {
-      newAddress.state = event.target.value;
-    }
+    newAddress[type] = event.target.value;
   };
 
   const updateNewAddress = (event) => {
@@ -33,6 +22,7 @@ export function Profile() {
     setToggleAddressForm(false);
     event.target.reset();
   }
+
   const deleteAddress = (event) => {
     setAddresses(()=>addresses.filter((address,index)=> index !== Number(event.target.value)));
   };
@@ -47,14 +37,14 @@ export function Profile() {
     <div className="add-address-container">
       <button className="logout-btn" onClick={()=>{setToggleAddressForm(!toggleAddressForm)}}>{toggleAddressForm ? "Close" : "Add New Address +"}</button>
       <form style={{display: toggleAddressForm ? "flex" : "none"}} className="address-form-container" onSubmit={updateNewAddress} action="">
-        <input required type="text" className="address-form-input" onChange={inputChangeHandler} id="name" placeholder="Name"></input>
+        <input required type="text" className="address-form-input" onChange={inputChangeHandler} id="firstName" placeholder="Name"></input>
         <input required type="number" className="address-form-input" onChange={inputChangeHandler} id="zipcode" placeholder="Zipcode"></input>
         <input required type="text" className="address-form-input" onChange={inputChangeHandler} id="city" placeholder="City"></input>
         <input required type="text" className="address-form-input" onChange={inputChangeHandler} id="state" placeholder="State"></input> <br />
         <button type="submit" className="logout-btn">Save</button>
       </form>
     </div>
-    {addresses.map((address,index) => <div key={index}>
+    {addresses.map((address, index) => <div key={index}>
       <h1>{address.firstName}</h1>
       <p>Zipcode: {address.zipcode}</p>
       <p>City: {address.city}</p>
@@ -89,12 +79,5 @@ export function Profile() {
       </div>
       <div>{profileData ? profileContent : addressesContent}</div>
     </div>
-    {/* <div className="profile-details-container">
-    <h1 style={{ textAlign: "center" }}>User Profile</h1>
-        <p style={{ margin: "0.5rem" }}><span style={{ fontWeight: "bolder" }}>Name: </span>{foundUser.firstName} {foundUser.lastName}</p>
-        <p style={{ margin: "0.5rem" }}><span style={{ fontWeight: "bolder" }}>Email: </span>{foundUser.email}</p>
-        <p style={{ margin: "0.5rem" }}><span style={{ fontWeight: "bolder" }}>Address: </span>{foundUser.address[0].city},{ foundUser.address[0].state}</p>
-        <button className="logout-btn" onClick={() => dispatch({ type: "Logout" })}>Logout</button>
-    </div> */}
   </div>);
 }

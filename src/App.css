@@ -400,6 +400,12 @@ input[type=radio] {
   border-radius: 5px;
   padding: 0.5rem 0.5rem;
 }
+.address-edit-container{
+  position: absolute;
+  top: 30%;
+  flex-direction: column;
+  border: 1px solid red;
+}
 .logout-btn{
   padding: 0.5rem 1rem;
   color: var(--color-10);
