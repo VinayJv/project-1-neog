@@ -9,7 +9,7 @@ export function Home() {
   const navigate = useNavigate();
 
   const homePageHandler = (event) => {
-    dispatch({type:"setCategory",payload: event.target.id});
+    dispatch({type:"setCategoryHome",payload: event.target.id});
     navigate("/store");
   };
 
