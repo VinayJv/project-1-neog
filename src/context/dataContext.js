@@ -14,6 +14,7 @@ export function ContextWrapper({ children }) {
   const[wishlistData,setWishlistData] = useState([]);
   const [menuToggle, setMenuToggle] = useState(false);
   const [selected, setSelected] = useState([]);
+  const [addresses, setAddresses] = useState([]);
   const navigate = useNavigate();
 
   const reducerFunction = (state, { type, payload }) => {
@@ -28,13 +29,13 @@ export function ContextWrapper({ children }) {
         return { ...state, isLoggedIn: !state.isLoggedIn };
 
       case "userFound":
-        return {...state,foundUser:payload};
+        return {...state, foundUser:payload};
 
       case "Logout":
         return { ...state, isLoggedIn: !state.isLoggedIn };
 
-      case "foundUser":
-        return { ...state, foundUser: payload };
+      // case "foundUser":
+      //   return { ...state, foundUser: payload };
 
       case "search":
         navigate("/store");
@@ -72,6 +73,7 @@ export function ContextWrapper({ children }) {
   };
 
   const [state, dispatch] = useReducer(reducerFunction, {
+    foundUser: {},
     isLoggedIn: false,
     categoryData: [],
     productData: [],
@@ -110,7 +112,7 @@ export function ContextWrapper({ children }) {
   }, []);
 
   return (
-    <DataContext.Provider value={{ state, dispatch, cartData, setCartData, wishlistData, setWishlistData, menuToggle, setMenuToggle, selected, setSelected }}>
+    <DataContext.Provider value={{ state, dispatch, cartData, setCartData, wishlistData, setWishlistData, menuToggle, setMenuToggle, selected, setSelected,addresses, setAddresses }}>
       {children}
     </DataContext.Provider>
   );

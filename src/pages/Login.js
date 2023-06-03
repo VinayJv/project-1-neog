@@ -5,7 +5,7 @@ import { useState,useEffect } from "react";
 import { Triangle } from "react-loader-spinner";
 
 export function Login() {
-    const { dispatch } = useDataContext();
+    const { dispatch, setAddresses } = useDataContext();
     const testUser = {email:"adarshbalika@gmail.com",password:"adarshbalika"};
     const [loader,setLoader] = useState(true);
     const location = useLocation();
@@ -25,6 +25,7 @@ export function Login() {
             const { foundUser,encodedToken } = await response.json();
             dispatch({ type: "Login"});
             dispatch({type:"userFound",payload: foundUser});
+            setAddresses(foundUser.address);
             localStorage.setItem("encodedToken", encodedToken);
             navigate(location?.state?.from?.pathname);
         }

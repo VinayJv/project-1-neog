@@ -5,8 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export function Profile() {
-  const { dispatch, state: { foundUser } } = useDataContext();
-  const [addresses, setAddresses] = useState(foundUser.address);
+  const { dispatch, state: { foundUser },addresses, setAddresses } = useDataContext();
   const [loader, setLoader] = useState(true);
   const [profileData, setProfileData] = useState(true);
   const [toggleAddressForm,setToggleAddressForm] = useState(false);
