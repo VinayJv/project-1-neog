@@ -1,6 +1,8 @@
 import { useDataContext } from "../context/dataContext";
 import { useEffect, useState } from "react";
 import { Triangle } from "react-loader-spinner";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Profile() {
   const { dispatch, state: { foundUser } } = useDataContext();
@@ -12,6 +14,12 @@ export function Profile() {
   const [showEditAddressForm,setShowEditAddressForm] = useState(false);
   let newAddress = {firstName:"",zipcode:"",city:"",state:""};
 
+  const notify = (message) => {
+    toast(message,{
+        position: "bottom-right",
+        className: "toast-message"
+    });
+};
 
   const updateNewAddress = (event) => {
     event.preventDefault();
@@ -23,10 +31,12 @@ export function Profile() {
     setAddresses([...addresses,newAddress]);
     setToggleAddressForm(false);
     event.target.reset();
+    notify("New Address Added");
   }
 
   const deleteAddress = (event) => {
     setAddresses(()=>addresses.filter((address,index)=> index !== Number(event.target.value)));
+    notify("Address Deleted");
   };
 
   const editAddress = (event) => {
@@ -40,6 +50,7 @@ export function Profile() {
     event.preventDefault();
     setShowEditAddressForm(false); 
     event.target.reset();
+    notify("Address Updated");
   }
 
   const editAddressBtn = (event) => {
@@ -111,5 +122,10 @@ export function Profile() {
       </div>
       <div>{profileData ? profileContent : addressesContent}</div>
     </div>
+    <ToastContainer 
+        autoClose={1500}
+        hideProgressBar={true}
+        pauseOnHover={false}
+        />
   </div>);
 }
