@@ -15,6 +15,7 @@ export function ContextWrapper({ children }) {
   const [menuToggle, setMenuToggle] = useState(false);
   const [selected, setSelected] = useState([]);
   const [addresses, setAddresses] = useState([]);
+  const [deliveryAddress,setDeliveryAddress] = useState({});
   const navigate = useNavigate();
 
   const reducerFunction = (state, { type, payload }) => {
@@ -112,7 +113,7 @@ export function ContextWrapper({ children }) {
   }, []);
 
   return (
-    <DataContext.Provider value={{ state, dispatch, cartData, setCartData, wishlistData, setWishlistData, menuToggle, setMenuToggle, selected, setSelected,addresses, setAddresses }}>
+    <DataContext.Provider value={{ state, dispatch, cartData, setCartData, wishlistData, setWishlistData, menuToggle, setMenuToggle, selected, setSelected,addresses, setAddresses, deliveryAddress, setDeliveryAddress }}>
       {children}
     </DataContext.Provider>
   );

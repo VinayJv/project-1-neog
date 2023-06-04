@@ -24,6 +24,8 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { AiFillGithub } from "react-icons/ai";
 import { FiTwitter } from "react-icons/fi";
 import { Callouts } from "./components/Callouts";
+import { Checkout } from "./pages/Checkout";
+import { OrderSummary } from "./pages/OrderSummary";
 
 function App() {
   const { dispatch, state } = useDataContext();
@@ -98,6 +100,8 @@ function App() {
           <Route path="/cart" element={<Auth><Cart /></Auth>}></Route>
           <Route path="/wishlist" element={<Auth><Wishlist /></Auth>}></Route>
           <Route path="/profile" element={<Auth><Profile /></Auth>}></Route>
+          <Route path="/checkout" element={<Auth><Checkout /></Auth>}></Route>
+          <Route path="/order-summary" element={<Auth><OrderSummary /></Auth>}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/mock-api" element={<Mockman />}></Route>

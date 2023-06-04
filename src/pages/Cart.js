@@ -2,10 +2,21 @@ import { useDataContext } from "../context/dataContext";
 import { CartCard } from "../components/CartCard";
 import { useEffect, useState } from "react";
 import { Triangle } from "react-loader-spinner";
+import { useNavigate } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Cart() {
     const { cartData } = useDataContext();
     const [loader, setLoader] = useState(true);
+    const navigate = useNavigate();
+
+    const notify = (message) => {
+        toast(message,{
+            position: "bottom-right",
+            className: "toast-message"
+        });
+    };
 
     useEffect(() => {
         setTimeout(() => {
@@ -34,9 +45,21 @@ export function Cart() {
             <div className="cart-total">
                 <span>Total Price: ₹ {<span>{cartData.reduce((acc, { price, qty }) => acc += price * qty, 0)}</span>}</span>
                 <div style={{ marginTop: "0.5rem" }}>
-                    <button className="btn-basic">Checkout</button>
+                    <button className="btn-basic" onClick={()=>{
+                        if(cartData.length !== 0){
+                            navigate("/checkout");
+                        }
+                        else{
+                            notify("Add Items To Cart");
+                        }
+                        }}>Checkout</button>
                 </div>
             </div>
         </div>
+        <ToastContainer 
+        autoClose={1500}
+        hideProgressBar={true}
+        pauseOnHover={false}
+        />
     </div>);
 }

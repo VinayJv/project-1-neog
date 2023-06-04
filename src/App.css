@@ -523,6 +523,41 @@ input[type=radio] {
   margin-bottom: 0.5rem;
 }
 
+/* Checkout Page Styling */
+.checkout-page{
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+}
+.checkout-left{
+  width: 60%;
+  padding: 1rem;
+}
+.checkout-right{
+  width: 40%;
+  padding: 1rem;
+}
+.address-details-container{
+  border: 2px solid var(--color-10);
+  border-radius: 5px;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.price-details-container{
+  border: 2px solid var(--color-10);
+  border-radius: 5px;
+  margin-top: 1rem;
+}
+.price-details{
+  display: flex;
+  justify-content: space-between;
+}
+.details-span{
+  margin: 1rem;
+}
+
 
 
 
