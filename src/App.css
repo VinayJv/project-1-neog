@@ -710,4 +710,14 @@ input[type=radio] {
   .inner-profile-container{
     width: 90%;
   }
+  /* Checkout Page Responsive */
+  .checkout-page{
+    flex-direction: column;
+  }
+  .checkout-left{
+    width: 100%;
+  }
+  .checkout-right{
+    width: 100%;
+  }
 }
