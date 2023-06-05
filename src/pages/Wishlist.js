@@ -93,7 +93,7 @@ export function Wishlist() {
     /></div> :
         <div className="wishlist-container">
             <h1 style={{ textAlign: "center", margin: "1rem" }}>Your Wishlist</h1>
-            {wishlistData.length === 0 && <h3 style={{textAlign:"center",margin:"2rem"}}>No Items In Wishlist</h3>}
+            {wishlistData.length === 0 && <h1 style={{textAlign:"center",margin:"2rem"}}>No Items In Wishlist</h1>}
             <div className="wishlist-card">
                 {wishlistData.map((product) => <div className="wishlist-card-inner" key={product._id}>
                     <img src={product.image} className="wishlist-image" alt={product._id}></img>

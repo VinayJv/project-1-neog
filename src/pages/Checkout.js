@@ -54,9 +54,9 @@ export function Checkout() {
                 <div className="price-details-container">
                     {cartData.map((product) => <div className="price-details" key={product.title}>
                         <span className="details-span">{product.title}</span>
-                        <span className="details-span">X {product.qty}</span>
+                        <span className="details-span">X{product.qty}</span>
                     </div>)}
-                    <span className="details-span">Total Price: {cartData.reduce((acc, { price, qty }) => acc += price * qty, 0)}</span>
+                    <div className="total-price">Total Price: ₹ {cartData.reduce((acc, { price, qty }) => acc += price * qty, 0)}</div>
                 </div>
                 <button className="form-btn" onClick={() => {
                     if (Object.keys(deliveryAddress).length > 0) {

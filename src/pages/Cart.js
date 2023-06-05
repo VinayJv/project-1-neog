@@ -35,7 +35,7 @@ export function Cart() {
     /></div> : <div className="cart-parent">
         <div className="cart-container">
             <h1 style={{ textAlign: "center" }}>Cart</h1>
-            {cartData.length === 0 && <h3 style={{textAlign:"center",marginTop:"2rem"}}>Cart Is Empty</h3>}
+            {cartData.length === 0 && <h1 style={{textAlign:"center",marginTop:"2rem"}}>Cart Is Empty</h1>}
             {
                 cartData.map((product) => <CartCard data={product} key={product._id} />)
             }

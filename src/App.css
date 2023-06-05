@@ -430,6 +430,7 @@ input[type=radio] {
 
 /* Cart Styling */
 .cart-parent{
+  min-height: 70dvh;
   display: flex;
   width: 80%;
   margin: 0 auto;
@@ -493,6 +494,7 @@ input[type=radio] {
 
 /* Wishlist Styling */
 .wishlist-container{
+  min-height: 70dvh;
   margin: 0 auto;
   width: 80%;
 }
@@ -525,6 +527,7 @@ input[type=radio] {
 
 /* Checkout Page Styling */
 .checkout-page{
+  min-height: 70dvh;
   display: flex;
   width: 80%;
   margin: 0 auto;
@@ -557,7 +560,40 @@ input[type=radio] {
 .details-span{
   margin: 1rem;
 }
-
+.total-price{
+  padding: 1rem;
+  display: flex;
+  justify-content: right;
+}
+/* Order Summary Styling */
+.order-summary-container{
+  width: 80%;
+  min-height: 90dvh;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.order-summary{
+  padding: 1rem;
+  border: 2px solid var(--color-10);
+  border-radius: 5px;
+  width: 50%;
+  margin: 1rem auto;
+  height: 90%;
+}
+.summary-para{
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+.order-summary-card{
+  border: 2px solid var(--color-10);
+  border-radius: 5px;
+  display: flex;
+  margin: 1rem;
+}
+.redirect{
+  width: 50%;
+  margin: 0.5rem auto;
+}
 
 
 
@@ -566,6 +602,10 @@ input[type=radio] {
 /* Responsive Layout */
 
 @media only screen and (max-width: 768px) {
+  /* Order Summary Responsive */
+  .order-summary{
+    width: 90%;
+  }
   *{
     font-size: 14px;
   }
