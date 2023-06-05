@@ -1,20 +1,31 @@
+import { useDataContext } from "../context/dataContext";
+import { useNavigate } from "react-router";
+
 export function Signup() {
+    const {dispatch,setAddresses} = useDataContext();
+    const navigate = useNavigate();
     let userData = {name:"",email:"",password:""};
 
     const signupDataHandler = (event) => {
-        if(event.target.name === "name"){
-            userData.name = event.target.value;
-        }
-        else if(event.target.name === "email"){
-            userData.email = event.target.value;
-        } 
-        else{
-            userData.password = event.target.value;
-        }
+        userData[event.target.name] = event.target.value;
     };
 
     const createAccount = async() => {
-        console.log(userData);
+        const response = await fetch("api/auth/signup",{
+            method:"POST",
+            body: JSON.stringify({
+                email: userData.email,
+                password: userData.password,
+                firstName: userData.name,
+                address: []
+            })
+        });
+        const { createdUser, encodedToken } = await response.json();
+        dispatch({ type: "Login"});
+        dispatch({type:"userFound",payload: createdUser});
+        localStorage.setItem("encodedToken", encodedToken);
+        navigate("/store");
+        
     };
 
     return (
@@ -23,7 +34,7 @@ export function Signup() {
                 <h4 style={{marginBottom:"1rem",color:"#EB4F47"}}>Sign Up</h4>
                 <div style={{marginBottom:"1rem",color:"#EB4F47"}}>
                     <label>Name</label><br />
-                    <input type="input" name="name" placeholder="John Doe" className="loginInput" onChange={signupDataHandler}></input>
+                    <input type="input" name="name" placeholder="Test User" className="loginInput" onChange={signupDataHandler}></input>
                 </div>
                 <div style={{marginBottom:"1rem",color:"#EB4F47"}}>
                     <label>Email Address</label><br />

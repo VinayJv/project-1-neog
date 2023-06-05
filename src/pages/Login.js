@@ -10,10 +10,29 @@ export function Login() {
     const [loader,setLoader] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
+    let input = {email:"",password:""};
 
 
     const loginDataHandler = (event) => {
-        console.log(event.target.value);
+        input[event.target.name] = event.target.value;
+    };
+
+    const loginHandler = async() => {
+        try{
+            const response = await fetch("/api/auth/login", {
+                method: "POST",
+                body: JSON.stringify(input),
+            });
+            const { foundUser,encodedToken } = await response.json();
+            dispatch({ type: "Login"});
+            dispatch({type:"userFound",payload: foundUser});
+            setAddresses(foundUser.address);
+            localStorage.setItem("encodedToken", encodedToken);
+            navigate(location?.state?.from?.pathname);
+        }
+        catch(err){
+            console.log(err);
+        }
     };
 
     const testLoginHandler = async () => {
@@ -59,6 +78,7 @@ export function Login() {
             <label>Password</label><br />
             <input type="input" onChange={loginDataHandler} name="password" placeholder="********" className="loginInput"></input>
         </div>
+        <button className="login-btn" onClick={loginHandler}>Login</button>
         <button className="login-btn" onClick={testLoginHandler}>Login with Test Credentials</button>
         <NavLink to="/signup">
             <p style={{ marginTop: "1rem", color: "#EB4F47", fontWeight: "bolder", textDecoration: "underline" }}>Create New Account {">"}</p>

@@ -36,6 +36,8 @@ export function Checkout() {
         <div className="checkout-page">
             <div className="checkout-left">
                 <h1>Address Details</h1>
+                {addresses.length < 1 && <div><p>No Address Added</p>
+                <p>To Add Address <span onClick={()=>navigate("/profile")} style={{color:"#EB4F47",textDecorationLine:"underline",cursor:"pointer"}}>click here</span></p></div>}
                 {addresses.map((address, index) =>
                     <div className="address-details-container" key={address.zipcode}>
                         <input type="radio" id={address.firstName} name="radio-checkout" className="accent-color" value={index} onChange={(event) => {

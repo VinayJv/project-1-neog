@@ -31,7 +31,7 @@ export function OrderSummary() {
         setTimeout(()=>{
             navigate("/");
             emptyUserCart();
-        },9000);
+        },12000);
     }, []);
 
     return (loader ? <div className="loader-container"><Triangle
